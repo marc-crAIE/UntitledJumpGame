@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 994235935}
   - component: {fileID: 994235934}
   - component: {fileID: 994235933}
+  - component: {fileID: 994235936}
   m_Layer: 0
   m_Name: EnemyMesh
   m_TagString: Untagged
@@ -318,6 +319,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994235931}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &994235936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994235931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc60632b53b3b224ea2cbc4b0d240584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  target: {fileID: 0}
+  parent: {fileID: 1713750367}
+  minTimeBetweenShots: 3
+  maxTimeBetweenShots: 6
 --- !u!1 &1713750367
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,15 +365,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 449d546b6dc1d5a4e959ad703a7481b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  wiggleDistance: 0.2
+  wiggleDistance: 0.15
   wiggleFrequency: 5
   enemyMesh: {fileID: 994235931}
   movementSpeed: 0.4
   leftEdge: -4
   rightEdge: 4
-  shootingFrequency: 0
-  target: {fileID: 0}
+  lerpAcceleration:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.000104297884
+      value: 0
+      inSlope: 0.5397561
+      outSlope: 0.5397561
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.02465302
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.46421382
+      outSlope: 0.46421382
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.027026992
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1713750369
 Transform:
   m_ObjectHideFlags: 0

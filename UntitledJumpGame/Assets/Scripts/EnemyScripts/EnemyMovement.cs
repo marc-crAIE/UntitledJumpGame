@@ -22,6 +22,8 @@ public class EnemyMovement : MonoBehaviour
     private float startingX;
     private float movementLerpJourney = 0.0f;
 
+    public AnimationCurve lerpAcceleration;
+
     void FixedUpdate()
     {
         WiggleLerp();
@@ -57,7 +59,8 @@ public class EnemyMovement : MonoBehaviour
         if (this.transform.position.x != targetX)
         {
             movementLerpJourney += movementSpeed * Time.deltaTime;
-            this.transform.position = Vector3.Lerp(new Vector3(startingX, this.transform.position.y, this.transform.position.z), new Vector3(targetX, this.transform.position.y, this.transform.position.z), movementLerpJourney);
+            float animatedAmout = lerpAcceleration.Evaluate(movementLerpJourney);
+            this.transform.position = Vector3.Lerp(new Vector3(startingX, this.transform.position.y, this.transform.position.z), new Vector3(targetX, this.transform.position.y, this.transform.position.z), animatedAmout);
         }
         else if (movementSpeed > 0.0f)
         {

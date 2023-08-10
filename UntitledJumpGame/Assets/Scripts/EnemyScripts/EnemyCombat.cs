@@ -36,6 +36,7 @@ public class EnemyCombat : MonoBehaviour
     protected void ShootAtTarget()
     {
         //bulletManager.ShootAt(this.transform.position, target.transform.position, bulletSpeed);
+        Debug.Log("Shooting Now");
         waitingCoroutine = StartCoroutine(TimeBetweenShots());
     }
 
@@ -60,6 +61,7 @@ public class EnemyCombat : MonoBehaviour
     IEnumerator TimeBetweenShots()
     {
         int timeToWait = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        Debug.Log("Waiting for " + timeToWait + " Seconds");
         yield return new WaitForSeconds(timeToWait);
         ShootAtTarget();
     }
