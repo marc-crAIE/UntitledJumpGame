@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class WallSpawner : MonoBehaviour
+public class WallSpawnerScript : MonoBehaviour
 {
-    public Camera camera;
     public GameObject wall;
+    
+    private Camera _camera;
     
     // Start is called before the first frame update
     void Start()
     {
-        // Get the width of the view area
-        float distance = Vector3.Distance(this.transform.position, camera.transform.position);
-        Vector3 viewBottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
-        Vector3 viewTopRight = camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
+        _camera = Camera.main;
+        
+        // Get the width and height of the view area
+        float distance = Vector3.Distance(this.transform.position, _camera.transform.position);
+        Vector3 viewBottomLeft = _camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        Vector3 viewTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
         
         float areaWidth = (viewTopRight.x - viewBottomLeft.x) + (wall.transform.localScale.x * 2.0f);
         float areaHeight = viewTopRight.y - viewBottomLeft.y;

@@ -7,11 +7,12 @@ using Random = UnityEngine.Random;
 
 public class PlatformSpawnerScript : MonoBehaviour
 {
-    public Camera camera;
     public GameObject platform;
     public float spawnChance;
     // The max number of platform spaces between each spawned platform
-    public int maxPlatformDistance;
+    public int maxPlatformSkips;
+    
+    private Camera _camera;
 
     private float _areaWidth;
     private float _areaHeight;
@@ -20,7 +21,7 @@ public class PlatformSpawnerScript : MonoBehaviour
     private int _numberOfPlatforms;
 
     private Vector3 _prevSpawnCheckPos;
-    private Vector3 _prevSpawnPos;
+    private int _spawnSkipCount = 0;
 
     private GameObject[] _platforms;
     private int _currentPlatformIdx = 0;
@@ -28,10 +29,12 @@ public class PlatformSpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _camera = Camera.main;
+        
         // Get the width and height of the view area
-        float distance = Vector3.Distance(this.transform.position, camera.transform.position);
-        Vector3 viewBottomLeft = camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
-        Vector3 viewTopRight = camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
+        float distance = Vector3.Distance(this.transform.position, _camera.transform.position);
+        Vector3 viewBottomLeft = _camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        Vector3 viewTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
         
         // Calculate the amount of platforms to have in that area
         var platformScale = platform.transform.localScale;
@@ -39,7 +42,7 @@ public class PlatformSpawnerScript : MonoBehaviour
         _areaWidth = (viewTopRight.x - viewBottomLeft.x) - platformScale.x;
         _areaHeight = viewTopRight.y - viewBottomLeft.y;
         _gridUnitHeight = platformScale.y;
-        _gridHeight = (int)(_areaHeight / _gridUnitHeight);
+        _gridHeight = (int)(_areaHeight * 1.5f);
 
         _numberOfPlatforms = _gridHeight;
 
@@ -73,19 +76,26 @@ public class PlatformSpawnerScript : MonoBehaviour
             SpawnPlatform(yPos);
             _prevSpawnCheckPos = position;
         }
+        
+        // TEMPORARY
+        transform.position -= new Vector3(0, 2.0f, 0.0f) * Time.deltaTime;
     }
 
     void SpawnPlatform(float y)
     {
-        if (Random.Range(0.0f, 1.0f) <= spawnChance || (_prevSpawnPos.y - transform.position.y) > (maxPlatformDistance * _gridUnitHeight))
+        if (Random.Range(0.0f, 1.0f) <= spawnChance || _spawnSkipCount >= maxPlatformSkips)
         {
             float posX = Random.Range(0, _areaWidth) - (_areaWidth / 2.0f);
+            var spawnPos = new Vector3(posX, y, 0);
 
-            _platforms[_currentPlatformIdx].transform.position = new Vector3(posX, y, 0);
+            _platforms[_currentPlatformIdx].transform.position = spawnPos;
             _platforms[_currentPlatformIdx].SetActive(true);
             _currentPlatformIdx = (_currentPlatformIdx + 1) % _numberOfPlatforms;
-            
-            _prevSpawnPos = this.transform.position;
+            _spawnSkipCount = 0;
+        }
+        else
+        {
+            _spawnSkipCount++;
         }
     }
 }
