@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCombat : MonoBehaviour
 {
     [SerializeField] private int health = 1;
+    [SerializeField] private float bulletSpeed;
 
 
     [SerializeField] private GameObject target;
@@ -35,7 +36,7 @@ public class EnemyCombat : MonoBehaviour
 
     protected void ShootAtTarget()
     {
-        //bulletManager.ShootAt(this.transform.position, target.transform.position, bulletSpeed);
+        EnemyBulletManager._instance.SpawnBullet(this.transform, target.transform, bulletSpeed);
         Debug.Log("Shooting Now");
         waitingCoroutine = StartCoroutine(TimeBetweenShots());
     }
