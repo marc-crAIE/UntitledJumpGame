@@ -28,6 +28,7 @@ public class PlatformScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the y position is below the view area, deactivate the platform
         if (transform.position.y < -(_areaHeight / 2.0f))
             gameObject.SetActive(false);
     }

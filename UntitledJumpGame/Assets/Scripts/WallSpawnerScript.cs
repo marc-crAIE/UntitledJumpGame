@@ -21,11 +21,15 @@ public class WallSpawnerScript : MonoBehaviour
         
         float areaWidth = (viewTopRight.x - viewBottomLeft.x) + (wall.transform.localScale.x * 2.0f);
         float areaHeight = viewTopRight.y - viewBottomLeft.y;
+        
+        // Get the wall x position
         float xPos = areaWidth / 2.0f;
         
+        // Create the wall at the appropriate x position given the side it spawns
         var wallRight = Instantiate(wall, new Vector3(xPos, 0, 0), Quaternion.identity, transform);
         var wallLeft = Instantiate(wall, new Vector3(-xPos, 0, 0), Quaternion.identity, transform);
-
+        
+        // Set the y scale of the wall to be just over the height of the screen
         var wallTransform = wall.transform;
         var wallLocalScale = wallTransform.localScale;
         var wallScale = new Vector3(wallLocalScale.x, areaHeight * 1.5f, wallLocalScale.z);
