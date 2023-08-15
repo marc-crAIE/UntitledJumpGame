@@ -17,9 +17,17 @@ public class WallSpawner : MonoBehaviour
         Vector3 viewTopRight = camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
         
         float areaWidth = (viewTopRight.x - viewBottomLeft.x) + (wall.transform.localScale.x * 2.0f);
+        float areaHeight = viewTopRight.y - viewBottomLeft.y;
         float xPos = areaWidth / 2.0f;
         
-        Instantiate(wall, new Vector3(xPos, 0, 0), Quaternion.identity, transform);
-        Instantiate(wall, new Vector3(-xPos, 0, 0), Quaternion.identity, transform);
+        var wallRight = Instantiate(wall, new Vector3(xPos, 0, 0), Quaternion.identity, transform);
+        var wallLeft = Instantiate(wall, new Vector3(-xPos, 0, 0), Quaternion.identity, transform);
+
+        var wallTransform = wall.transform;
+        var wallLocalScale = wallTransform.localScale;
+        var wallScale = new Vector3(wallLocalScale.x, areaHeight * 1.5f, wallLocalScale.z);
+        
+        wallRight.transform.localScale = wallScale;
+        wallLeft.transform.localScale = wallScale;
     }
 }
