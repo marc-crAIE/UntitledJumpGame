@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
@@ -10,6 +11,28 @@ public class EnemyBullet : MonoBehaviour
     {
         //move forward at the set speed
         this.gameObject.transform.Translate(this.gameObject.transform.forward * speed * Time.deltaTime, Space.World);
+    }
+
+    /// <summary>
+    /// On trigger enter catch
+    /// </summary>
+    /// <param name="other">object the collision trigger is activated with</param>
+    private void OnTriggerEnter(Collider other)
+    {
+        //check if the object doesn't have the enemy tag
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            //destroy this object
+            Die();
+        }
+
+        //check if the object has the player tag
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Hurt the player
+            //GameManager._instance.player.Die();
+            Debug.Log("Player Dies!");
+        }
     }
 
     /// <summary>
@@ -28,5 +51,14 @@ public class EnemyBullet : MonoBehaviour
         this.gameObject.transform.LookAt(target.position);
         //set this bullet to active
         this.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// disables this bullet and calls the function in bullet manager to move it to the inactive list
+    /// </summary>
+    private void Die()
+    {
+        this.gameObject.SetActive(false);
+        EnemyBulletManager._instance.DeSpawnBullet(this);
     }
 }
