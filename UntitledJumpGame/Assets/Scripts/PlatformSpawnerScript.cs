@@ -1,17 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class PlatformSpawnerScript : MonoBehaviour
 {
+    #region Variables
+
+    #region Public
+
     public GameObject platform;
     public float spawnChance;
     // The max number of platform spaces between each spawned platform
     public int maxPlatformSkips;
-    
+        
+    #endregion
+
+    #region Private
+
     private Camera _camera;
 
     private float _areaWidth;
@@ -21,10 +25,16 @@ public class PlatformSpawnerScript : MonoBehaviour
     private int _numberOfPlatforms;
 
     private Vector3 _prevSpawnCheckPos;
-    private int _spawnSkipCount = 0;
+    private int _spawnSkipCount;
 
     private GameObject[] _platforms;
-    private int _currentPlatformIdx = 0;
+    private int _currentPlatformIdx;
+
+    #endregion
+
+    #endregion
+
+    #region Unity Events
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +42,7 @@ public class PlatformSpawnerScript : MonoBehaviour
         _camera = Camera.main;
         
         // Get the width and height of the view area along with the size of the grid of platforms
-        float distance = Vector3.Distance(this.transform.position, _camera.transform.position);
+        float distance = Vector3.Distance(this.transform.position, _camera!.transform.position);
         Vector3 viewBottomLeft = _camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
         Vector3 viewTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
         
@@ -84,6 +94,8 @@ public class PlatformSpawnerScript : MonoBehaviour
         // TEMPORARY
         transform.position -= new Vector3(0, 2.0f, 0.0f) * Time.deltaTime;
     }
+
+    #endregion
 
     void SpawnPlatform(float y)
     {
