@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - Spawn Platform
+  - Enemy
   layers:
   - Default
   - TransparentFX
