@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +12,8 @@ public class PlatformSpawnerScript : MonoBehaviour
     public float spawnChance;
     // The max number of platform spaces between each spawned platform
     public int maxPlatformSkips;
+    public int spawnPlatformStartHeight = 8;
+    public int spaceAfterSpawnPlatform = 6;
         
     #endregion
 
@@ -67,11 +70,21 @@ public class PlatformSpawnerScript : MonoBehaviour
         }
         
         // Spawn the initial bunch
+        int count = 0;
         for (float gridY = 0; gridY < _gridHeight; gridY += _gridUnitHeight)
         {
-            // Get the y position factoring the offset of half the grid height
-            float posY = gridY - (_gridHeight / 2.0f);
-            SpawnPlatform(posY);
+            if (count <= spawnPlatformStartHeight || count > spawnPlatformStartHeight + spaceAfterSpawnPlatform)
+            {
+                // Get the y position factoring the offset of half the grid height
+                float posY = gridY - (_gridHeight / 2.0f);
+
+                if (count == spawnPlatformStartHeight)
+                    SpawnPlatform(posY, 0, true);
+                else
+                    SpawnPlatform(posY);
+            }
+
+            count++;
         }
     }
 
@@ -97,18 +110,23 @@ public class PlatformSpawnerScript : MonoBehaviour
 
     #endregion
 
-    void SpawnPlatform(float y)
+    void SpawnPlatform(float y, float x = 0, bool spawn = false)
     {
         // Randomly pick if a platform should spawn unless it has been too long since one has spawned
-        if (Random.Range(0.0f, 1.0f) <= spawnChance || _spawnSkipCount >= maxPlatformSkips)
+        if (Random.Range(0.0f, 1.0f) <= spawnChance || _spawnSkipCount >= maxPlatformSkips || spawn)
         {
             // Pick a random x position
-            float posX = Random.Range(0, _areaWidth) - (_areaWidth / 2.0f);
+            float posX = !spawn ? Random.Range(0, _areaWidth) - (_areaWidth / 2.0f) : x;
             var spawnPos = new Vector3(posX, y, 0);
             
             // Set the transform position of the platform and re-activate it
             _platforms[_currentPlatformIdx].transform.position = spawnPos;
             _platforms[_currentPlatformIdx].SetActive(true);
+
+            if (spawn)
+                _platforms[_currentPlatformIdx].tag = "Spawn Platform";
+            else
+                _platforms[_currentPlatformIdx].tag = "Platform";
             
             // Increment the current platform index between 0 and the number of platforms
             _currentPlatformIdx = (_currentPlatformIdx + 1) % _numberOfPlatforms;
