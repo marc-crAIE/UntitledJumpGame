@@ -44,6 +44,7 @@ public class EnemyManager : MonoBehaviour
             tank.SetTarget(target);
             deadTankEnemies.AddLast(tank);
         }
+        StartCoroutine(SpawnEnemy());
     }
 
 
@@ -61,18 +62,56 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void SpawnRandom()
+    public void SpawnSelector()
     {
+        Vector3 position = new Vector3(Random.Range(-3, 3), Random.Range(-5, 5), 0);
+        float leftx = Random.Range(-5, 5); // replace with screen edges
+        float rightx = Random.Range(-5, 5); //replace with screen edges
 
+
+        int selection = Random.Range(0, 2);
+        switch(selection){
+            case 0:
+                SpawnBasic(position, leftx, rightx);
+                break;
+            default:
+                SpawnTank(position, leftx, rightx);
+                break;
+        }
     }
 
-    public void SpawnBasic()
-    {
 
+    public void SpawnBasic(Vector3 pos, float left, float right)
+    {
+        EnemyBaseScript enemy = null;
+        if (deadBasicEnemies.Count != 0)
+        {
+            enemy = deadBasicEnemies.Last.Value;
+            deadBasicEnemies.Remove(enemy);
+            aliveBasicEnemies.AddLast(enemy);
+            enemy.SetMovementEdges(left, right);
+            enemy.Spawn(pos);
+            
+        }
     }
 
-    public void SpawnTank()
+    public void SpawnTank(Vector3 pos, float left, float right)
     {
+        EnemyBaseScript enemy = null;
+        if (deadTankEnemies.Count != 0)
+        {
+            enemy = deadTankEnemies.Last.Value;
+            deadTankEnemies.Remove(enemy);
+            aliveTankEnemies.AddLast(enemy);
+            enemy.SetMovementEdges(left, right);
+            enemy.Spawn(pos);
+        }
+    }
 
+    IEnumerator SpawnEnemy()
+    {
+        yield return new WaitForSeconds(2);
+        SpawnSelector();
+        StartCoroutine(SpawnEnemy());
     }
 }

@@ -6,6 +6,7 @@ public class EnemyCombat : MonoBehaviour
 {
     //health and bullet speed
     [SerializeField] private int health = 1;
+    private int defaultHealth = 1;
     [SerializeField] private float bulletSpeed;
 
 
@@ -29,13 +30,14 @@ public class EnemyCombat : MonoBehaviour
     {
         //start waiting
         waitingCoroutine = StartCoroutine(TimeBetweenShots());
+        defaultHealth = health;
     }
 
     // Update is called once per frame
     void Update()
     {
         //check if health is below or equal to 0
-        if (health < 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -100,8 +102,9 @@ public class EnemyCombat : MonoBehaviour
         ShootAtTarget();
     }
 
-    public void ResetShooting()
+    public void ResetCombat()
     {
+        health = defaultHealth;
         if (waitingCoroutine != null)
         {
             StopCoroutine(waitingCoroutine);

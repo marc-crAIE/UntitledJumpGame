@@ -24,7 +24,7 @@ public class EnemyBaseScript : MonoBehaviour
     public void Spawn(Vector3 spawnPosition)
     {
         movementController.Spawn(spawnPosition);
-        combatController.ResetShooting();
+        combatController.ResetCombat();
     }
 
     public void SetMovementEdges(float leftEdge, float rightEdge)
