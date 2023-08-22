@@ -10,10 +10,11 @@ public class EnemyCombat : MonoBehaviour
 
 
     //target to shoot at
-    [SerializeField] private GameObject target;
+    private GameObject target;
 
 
     [SerializeField] private GameObject parent;
+    private EnemyBaseScript parentScript;
 
 
     //used to randomise a time between shooting from the enemy so it is not always the same
@@ -78,6 +79,9 @@ public class EnemyCombat : MonoBehaviour
 
         //Any animations for death include here
         parent.SetActive(false);
+
+        //Updates pooling of this gameObject
+        parentScript.Die();
     }
 
     /// <summary>
@@ -94,5 +98,24 @@ public class EnemyCombat : MonoBehaviour
 
         //shoot at the target
         ShootAtTarget();
+    }
+
+    public void ResetShooting()
+    {
+        if (waitingCoroutine != null)
+        {
+            StopCoroutine(waitingCoroutine);
+        }
+        waitingCoroutine = StartCoroutine(TimeBetweenShots());
+    }
+
+    public void SetTarget(GameObject targetObject)
+    {
+        target = targetObject;
+    }
+
+    public void SetBaseScript(EnemyBaseScript baseScript)
+    {
+        parentScript = baseScript;
     }
 }

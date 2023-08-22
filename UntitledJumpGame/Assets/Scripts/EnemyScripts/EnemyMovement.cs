@@ -30,12 +30,32 @@ public class EnemyMovement : MonoBehaviour
     //animation curve to smooth out lerping
     public AnimationCurve lerpAcceleration;
 
+
+
+    public void Spawn(Vector3 spawnPosition)
+    {
+        this.transform.position = spawnPosition;
+        ResetLerps();
+        this.gameObject.SetActive(true);
+    }
+
     void FixedUpdate()
     {
         //update wiggling
         WiggleLerp();
         //update moving to position
         MoveToLerp();
+    }
+
+    private void ResetLerps()
+    {
+        GetWigglePosition();
+        wiggleJourney = 0.0f;
+        wiggleStartPosition = enemyMesh.transform.localPosition;
+
+        GetXPosition();
+        movementLerpJourney = 0.0f;
+        startingX = this.transform.position.x;
     }
 
     /// <summary>
@@ -115,5 +135,16 @@ public class EnemyMovement : MonoBehaviour
         {
             targetX = rightEdge;
         }
+    }
+
+    public void SetEdges(float leftX, float rightX)
+    {
+        leftEdge = leftX;
+        rightEdge = rightX;
+    }
+
+    public void SetMovementSpeed(float newSpeed)
+    {
+        movementSpeed = newSpeed;
     }
 }
