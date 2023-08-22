@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,19 +12,19 @@ public class PlayerMovement : MonoBehaviour
     #endregion SerializeFields
     #region Variables
         private Rigidbody _myRigidbody;
-        //private BoxCollider _myCollider;
+        private BoxCollider _myCollider;
         private Vector2 _inputVector;
-        /*
+        
         // Variables for stopping air-jumping <- No function created yet to utilise these
         private bool _groundedPlayer;
         private bool _jumpPressed = false;
-        */
+        
     #endregion Variables
     
     private void Awake()
     {
         _myRigidbody = GetComponent<Rigidbody>();
-        //_myCollider = GetComponent<BoxCollider>();
+        _myCollider = GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -46,8 +47,17 @@ public class PlayerMovement : MonoBehaviour
 #region Jump
     private void OnJump()
     {
-        // Need to add a check to see if touching the layer 'ground' to stop air jumping
-        _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, jumpForce);
+        if (_groundedPlayer == true)
+        {
+            // Need to add a check to see if touching the layer 'ground' to stop air jumping
+            _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, jumpForce);
+            _groundedPlayer = false;
+        }
+    }
+
+    void OnCollisionEnter()
+    {
+        _groundedPlayer = true;
     }
 #endregion Jump
     
