@@ -15,9 +15,8 @@ public class PlayerMovement : MonoBehaviour
         private BoxCollider _myCollider;
         private Vector2 _inputVector;
         
-        // Variables for stopping air-jumping <- No function created yet to utilise these
+        // Variable for stopping air-jumping <- No function created yet to utilise these
         private bool _groundedPlayer;
-        private bool _jumpPressed = false;
         
     #endregion Variables
     
