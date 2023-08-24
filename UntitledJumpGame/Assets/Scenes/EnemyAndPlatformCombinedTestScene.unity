@@ -550,11 +550,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835effa4b6070ab418f7d1cd67d282c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldObject: {fileID: 1931319779}
+  platformSpawner: {fileID: 1931319780}
+  minMoveDistance: 5
+  maxMoveDistance: 30
   basicEnemy: {fileID: 687500170628966490, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
   tankEnemy: {fileID: 37012864713243160, guid: cc510dbd44a17db48b66698b9fca76f8, type: 3}
-  numOfEachPooledEnemies: 3
+  numOfEachPooledEnemies: 4
   target: {fileID: 254058176}
+  enemyWidth: 1.5
 --- !u!1 &1654689517
 GameObject:
   m_ObjectHideFlags: 0

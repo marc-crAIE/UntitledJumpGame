@@ -1,32 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager _instance;
 
-    [SerializeField] private Transform worldObject;
+    [SerializeField] PlatformSpawnerScript platformSpawner;
+    public float minMoveDistance = 5;
+    public float maxMoveDistance = 30;
+    private float spawnEnemyAt = 0;
 
-#region enemyTypes
+    #region enemyTypes
     [SerializeField] private EnemyBaseScript basicEnemy;
     [SerializeField] private EnemyBaseScript tankEnemy;
 #endregion
 
 
-    [SerializeField] private int numOfEachPooledEnemies = 3;
+    //number of each enemy to spawn
+    [SerializeField] private int numOfEachPooledEnemies = 4;
+    //target to shoot at (should be set to the player)
     [SerializeField] GameObject target;
 
-
+    //basic enemy pooling
     private LinkedList<EnemyBaseScript> deadBasicEnemies = new LinkedList<EnemyBaseScript>();
     private LinkedList<EnemyBaseScript> aliveBasicEnemies = new LinkedList<EnemyBaseScript>();
 
-
+    //tank enemy pooling
     private LinkedList<EnemyBaseScript> deadTankEnemies = new LinkedList<EnemyBaseScript>();
     private LinkedList<EnemyBaseScript> aliveTankEnemies = new LinkedList<EnemyBaseScript>();
 
+
+    //Screen Area
+    private Camera _camera;
+    private float gameWidth;
+    private float gameHeight;
+
+    //enemySideBuffer so that they do not spawn or move off screen
+    [SerializeField] private float enemyWidth;
+
     private void Start()
     {
+        _camera = Camera.main;
+        spawnEnemyAt = platformSpawner.transform.position.y - GetRandomSpawnDistance();
         if (_instance != null && _instance != this)
         {
             Destroy(this);
@@ -38,15 +56,37 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < numOfEachPooledEnemies; i ++)
         {
-            EnemyBaseScript basic = Instantiate(basicEnemy, worldObject);
+            EnemyBaseScript basic = Instantiate(basicEnemy, platformSpawner.transform);
             basic.SetTarget(target);
             deadBasicEnemies.AddLast(basic);
 
-            EnemyBaseScript tank = Instantiate(tankEnemy, worldObject);
+            EnemyBaseScript tank = Instantiate(tankEnemy, platformSpawner.transform);
             tank.SetTarget(target);
             deadTankEnemies.AddLast(tank);
         }
-        StartCoroutine(SpawnEnemy());
+        //Update to be based on screen movement not time
+        //StartCoroutine(SpawnEnemy());
+
+        //get screen space positions
+        float distance = Vector3.Distance(platformSpawner.transform.position, _camera!.transform.position);
+        Vector3 viewBottomLeft = _camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        Vector3 viewTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
+
+        gameWidth = (viewTopRight.x - viewBottomLeft.x);
+        gameHeight = viewTopRight.y - viewBottomLeft.y;
+    }
+
+    private void FixedUpdate()
+    {
+        if (spawnEnemyAt > platformSpawner.transform.position.y)
+        {
+            SpawnSelector();
+            if (maxMoveDistance > minMoveDistance)
+            {
+                maxMoveDistance--;
+            }
+            spawnEnemyAt = platformSpawner.transform.position.y - GetRandomSpawnDistance();
+        }
     }
 
 
@@ -66,28 +106,27 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnSelector()
     {
-        Vector3 position = new Vector3(Random.Range(-3, 3), 10, 0);
-        float leftx = Random.Range(-5, 5); // replace with screen edges
-        float rightx = Random.Range(-5, 5); //replace with screen edges
+        Vector3 position = new Vector3(GetRandomXInScreen(), gameHeight, 0);
 
-
-        int selection = Random.Range(0, 2);
+        int selection = Random.Range(0, 3);
         switch(selection){
             case 0:
-                SpawnBasic(position, leftx, rightx);
+            case 1:
+                SpawnBasic(position);
+                break;
+            case 2:
+                SpawnTank(position);
+                break;
+            case 3:
+                SpawnDoubleTank();
                 break;
             default:
-                SpawnTank(position, leftx, rightx);
                 break;
         }
     }
 
 
-
-
-
-
-    public void SpawnBasic(Vector3 pos, float left, float right)
+    public void SpawnBasic(Vector3 pos)
     {
         EnemyBaseScript enemy = null;
         if (deadBasicEnemies.Count != 0)
@@ -95,29 +134,66 @@ public class EnemyManager : MonoBehaviour
             enemy = deadBasicEnemies.First.Value;
             deadBasicEnemies.Remove(enemy);
             aliveBasicEnemies.AddLast(enemy);
-            enemy.SetMovementEdges(left, right);
+            enemy.SetMovementEdges(GetRandomXInScreen(), GetRandomXInScreen());
             enemy.Spawn(pos);
             
         }
     }
 
-    public void SpawnTank(Vector3 pos, float left, float right)
+    public void SpawnTank(Vector3 pos)
     {
         EnemyBaseScript enemy = null;
         if (deadTankEnemies.Count != 0)
         {
-            enemy = deadTankEnemies.Last.Value;
+            enemy = deadTankEnemies.First.Value;
             deadTankEnemies.Remove(enemy);
             aliveTankEnemies.AddLast(enemy);
-            enemy.SetMovementEdges(left, right);
+            enemy.SetMovementEdges(GetRandomXInScreen(), GetRandomXInScreen());
             enemy.Spawn(pos);
+            enemy.SetMovementSpeed();
         }
     }
 
-    IEnumerator SpawnEnemy()
+    public void SpawnDoubleTank()
     {
-        yield return new WaitForSeconds(2);
-        SpawnSelector();
-        StartCoroutine(SpawnEnemy());
+        SideSpawner(true);
+        SideSpawner(false);
+    }
+
+
+    public void SideSpawner(bool left)
+    {
+        float side = 1;
+        if (left)
+        {
+            side *= -1;
+        }
+
+        EnemyBaseScript enemy = null;
+        Vector3 pos = new Vector3(0 + gameWidth * side * 0.25f, gameHeight, 0);
+        if (deadTankEnemies.Count > 0)
+        {
+            enemy = deadTankEnemies.First.Value;
+            deadTankEnemies.Remove(enemy);
+            aliveTankEnemies.AddLast(enemy);
+            enemy.SetMovementEdges(GetRandomXInScreen(), GetRandomXInScreen());
+            enemy.Spawn(pos);
+            enemy.SetMovementSpeed(0);
+        }
+    }
+
+    public float GetRandomXInScreen()
+    {
+        return Random.Range(-gameWidth * 0.5f + enemyWidth, gameWidth * 0.5f - enemyWidth); // replace with screen edges
+    }
+
+    private float GetRandomSpawnDistance()
+    {
+        return Random.Range(minMoveDistance, maxMoveDistance); ; // replace with screen edges
+    }
+
+    public float GetGameHeight()
+    {
+        return gameHeight;
     }
 }

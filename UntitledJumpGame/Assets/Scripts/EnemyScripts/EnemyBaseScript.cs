@@ -23,7 +23,7 @@ public class EnemyBaseScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.y < 0)
+        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.5)
         {
             combatController.StopAllCoroutines();
             gameObject.SetActive(false);
@@ -40,6 +40,11 @@ public class EnemyBaseScript : MonoBehaviour
     public void SetMovementEdges(float leftEdge, float rightEdge)
     {
         movementController.SetEdges(leftEdge, rightEdge);
+    }
+
+    public void SetMovementSpeed()
+    {
+        movementController.ResetMovementSpeed();
     }
 
     public void SetMovementSpeed(float speed)

@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     //movement speed determines how fast the enemy will move from the left to the right(and vice versa) of the screen
     [SerializeField] private float movementSpeed = 0.4f;
+    private float defaultMovementSpeed;
     [SerializeField] private float leftEdge = -4;
     [SerializeField] private float rightEdge = 4;
 
@@ -30,6 +31,11 @@ public class EnemyMovement : MonoBehaviour
     //animation curve to smooth out lerping
     public AnimationCurve lerpAcceleration;
 
+
+    private void Start()
+    {
+        defaultMovementSpeed = movementSpeed;
+    }
 
 
     public void Spawn(Vector3 spawnPosition)
@@ -146,5 +152,10 @@ public class EnemyMovement : MonoBehaviour
     public void SetMovementSpeed(float newSpeed)
     {
         movementSpeed = newSpeed;
+    }
+
+    public void ResetMovementSpeed()
+    {
+        movementSpeed = defaultMovementSpeed;
     }
 }
