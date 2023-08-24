@@ -102,6 +102,9 @@ public class EnemyCombat : MonoBehaviour
         ShootAtTarget();
     }
 
+    /// <summary>
+    /// Resets this enemy for respawning
+    /// </summary>
     public void ResetCombat()
     {
         health = defaultHealth;
@@ -112,13 +115,12 @@ public class EnemyCombat : MonoBehaviour
         waitingCoroutine = StartCoroutine(TimeBetweenShots());
     }
 
+    /// <summary>
+    /// sets the target this enemy will shoot at
+    /// </summary>
+    /// <param name="targetObject">gameobject of the target to shoot at</param>
     public void SetTarget(GameObject targetObject)
     {
         target = targetObject;
-    }
-
-    public void SetBaseScript(EnemyBaseScript baseScript)
-    {
-        parentScript = baseScript;
     }
 }

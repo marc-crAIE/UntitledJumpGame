@@ -143,17 +143,29 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// set the left and right edges of the screen this enemy will move between
+    /// </summary>
+    /// <param name="leftX">x value this enemy will move toward</param>
+    /// <param name="rightX">second x value this enemy will move towards</param>
     public void SetEdges(float leftX, float rightX)
     {
         leftEdge = leftX;
         rightEdge = rightX;
     }
 
+    /// <summary>
+    /// set the movement speed to the input speed
+    /// </summary>
+    /// <param name="newSpeed">float of the new speed to set this enemy to</param>
     public void SetMovementSpeed(float newSpeed)
     {
         movementSpeed = newSpeed;
     }
 
+    /// <summary>
+    /// if the parameters are empty reset this movement speed to the default speed (speed set at the start of the game)
+    /// </summary>
     public void ResetMovementSpeed()
     {
         movementSpeed = defaultMovementSpeed;
