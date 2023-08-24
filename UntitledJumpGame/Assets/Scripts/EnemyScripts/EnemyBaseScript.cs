@@ -27,7 +27,7 @@ public class EnemyBaseScript : MonoBehaviour
         //check fi this enemy has moved below the edge of the screen
         if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.5)
         {
-            \//if the enemy is below the screen kill this enemy
+            //if the enemy is below the screen kill this enemy
             combatController.StopAllCoroutines();
             gameObject.SetActive(false);
             Die();
