@@ -65,10 +65,12 @@ public class EnemyManager : MonoBehaviour
         {
             EnemyBaseScript basic = Instantiate(basicEnemy, platformSpawner.transform);
             basic.SetTarget(target);
+            basic.gameObject.SetActive(false);
             deadBasicEnemies.AddLast(basic);
 
             EnemyBaseScript tank = Instantiate(tankEnemy, platformSpawner.transform);
             tank.SetTarget(target);
+            tank.gameObject.SetActive(false);
             deadTankEnemies.AddLast(tank);
         }
 
@@ -188,10 +190,11 @@ public class EnemyManager : MonoBehaviour
             aliveTankEnemies.AddLast(enemy);
             //set the movement positions
             enemy.SetMovementEdges(GetRandomXInScreen(), GetRandomXInScreen());
-            //ReActivate the enemy
-            enemy.Spawn(pos);
             //reset the movement speed as the double tank will change this to 0
             enemy.SetMovementSpeed();
+            //ReActivate the enemy
+            enemy.Spawn(pos);
+            
         }
     }
 

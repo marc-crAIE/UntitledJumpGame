@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     //movement speed determines how fast the enemy will move from the left to the right(and vice versa) of the screen
     [SerializeField] private float movementSpeed = 0.4f;
-    private float defaultMovementSpeed;
+    [SerializeField]private float defaultMovementSpeed = 0.4f;
     [SerializeField] private float leftEdge = -4;
     [SerializeField] private float rightEdge = 4;
 
@@ -32,12 +32,15 @@ public class EnemyMovement : MonoBehaviour
     public AnimationCurve lerpAcceleration;
 
 
-    private void Start()
-    {
+    void Awake()
+    {    
         defaultMovementSpeed = movementSpeed;
     }
 
-
+    /// <summary>
+    /// move this enemy to the spawn location then reActivate it
+    /// </summary>
+    /// <param name="spawnPosition"></param>
     public void Spawn(Vector3 spawnPosition)
     {
         this.transform.position = spawnPosition;
@@ -53,6 +56,9 @@ public class EnemyMovement : MonoBehaviour
         MoveToLerp();
     }
 
+    /// <summary>
+    /// Reset the lerping values to start when the enemy spawns
+    /// </summary>
     private void ResetLerps()
     {
         GetWigglePosition();
