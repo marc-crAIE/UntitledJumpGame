@@ -21,6 +21,16 @@ public class EnemyBaseScript : MonoBehaviour
         }    
     }
 
+    private void FixedUpdate()
+    {
+        if (transform.position.y < 0)
+        {
+            combatController.StopAllCoroutines();
+            gameObject.SetActive(false);
+            Die();
+        }
+    }
+
     public void Spawn(Vector3 spawnPosition)
     {
         movementController.Spawn(spawnPosition);

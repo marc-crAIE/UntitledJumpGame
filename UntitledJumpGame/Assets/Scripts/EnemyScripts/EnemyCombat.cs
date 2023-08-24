@@ -75,7 +75,7 @@ public class EnemyCombat : MonoBehaviour
     /// <summary>
     /// kills this enemy
     /// </summary>
-    private void Die()
+    public void Die()
     {
         StopAllCoroutines();
 

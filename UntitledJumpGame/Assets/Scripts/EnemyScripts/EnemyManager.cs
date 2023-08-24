@@ -6,6 +6,8 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager _instance;
 
+    [SerializeField] private Transform worldObject;
+
 #region enemyTypes
     [SerializeField] private EnemyBaseScript basicEnemy;
     [SerializeField] private EnemyBaseScript tankEnemy;
@@ -36,11 +38,11 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < numOfEachPooledEnemies; i ++)
         {
-            EnemyBaseScript basic = Instantiate(basicEnemy);
+            EnemyBaseScript basic = Instantiate(basicEnemy, worldObject);
             basic.SetTarget(target);
             deadBasicEnemies.AddLast(basic);
 
-            EnemyBaseScript tank = Instantiate(tankEnemy);
+            EnemyBaseScript tank = Instantiate(tankEnemy, worldObject);
             tank.SetTarget(target);
             deadTankEnemies.AddLast(tank);
         }
@@ -64,7 +66,7 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnSelector()
     {
-        Vector3 position = new Vector3(Random.Range(-3, 3), Random.Range(-5, 5), 0);
+        Vector3 position = new Vector3(Random.Range(-3, 3), 10, 0);
         float leftx = Random.Range(-5, 5); // replace with screen edges
         float rightx = Random.Range(-5, 5); //replace with screen edges
 
@@ -81,12 +83,16 @@ public class EnemyManager : MonoBehaviour
     }
 
 
+
+
+
+
     public void SpawnBasic(Vector3 pos, float left, float right)
     {
         EnemyBaseScript enemy = null;
         if (deadBasicEnemies.Count != 0)
         {
-            enemy = deadBasicEnemies.Last.Value;
+            enemy = deadBasicEnemies.First.Value;
             deadBasicEnemies.Remove(enemy);
             aliveBasicEnemies.AddLast(enemy);
             enemy.SetMovementEdges(left, right);

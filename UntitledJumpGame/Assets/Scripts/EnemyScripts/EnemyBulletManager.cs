@@ -80,8 +80,7 @@ public class EnemyBulletManager : MonoBehaviour
     /// </summary>
     private void CreateNewBullet()
     {
-        EnemyBullet bullet = Instantiate(bulletPrefab);
+        EnemyBullet bullet = Instantiate(bulletPrefab, transform);
         inactiveBullets.AddFirst(bullet);
-        bullet.transform.parent = this.transform;
     }
 }
