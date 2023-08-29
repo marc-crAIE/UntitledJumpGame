@@ -20,7 +20,7 @@ public class JumpController : MonoBehaviour
     {
         if (rb.velocity.y < 0f)
         {
-            rb.velocity -= vecGravity * fallMultiplier * Time.deltaTime;
+            rb.velocity -= vecGravity * (fallMultiplier * Time.deltaTime);
         }
     }
     
