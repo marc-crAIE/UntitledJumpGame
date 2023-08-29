@@ -1,63 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     #region Serialized Fields
         [SerializeField] private float moveSpeed = 5.0f;
-        [SerializeField] private float jumpForce = 6.0f;
     #endregion SerializeFields
     #region Variables
-        private Rigidbody _myRigidbody;
-        private BoxCollider _myCollider;
-        private Vector2 _inputVector;
-        
-        // Variable for stopping air-jumping <- No function created yet to utilise these
-        private bool _groundedPlayer;
-        
+        private Rigidbody rb;
+        private Vector2 inputVector;
     #endregion Variables
     
     private void Awake()
     {
-        _myRigidbody = GetComponent<Rigidbody>();
-        _myCollider = GetComponent<BoxCollider>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         Move();
     }
-
-#region Move
+ #region Move
     private void Move()
     {
-        Vector3 movementDelta = _inputVector * moveSpeed * Time.deltaTime;
+        Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, inputVector.y * Time.deltaTime, 0f);
         transform.position += movementDelta;
     }
     private void OnMove(InputValue value)
     {
-        _inputVector = value.Get<Vector2>();
+        inputVector = value.Get<Vector2>();
     }
 #endregion Move
-
-#region Jump
-    private void OnJump()
-    {
-        if (_groundedPlayer == true)
-        {
-            // Need to add a check to see if touching the layer 'ground' to stop air jumping
-            _myRigidbody.velocity = new Vector2(_myRigidbody.velocity.x, jumpForce);
-            _groundedPlayer = false;
-        }
-    }
-
-    void OnCollisionEnter()
-    {
-        _groundedPlayer = true;
-    }
-#endregion Jump
-    
 }
