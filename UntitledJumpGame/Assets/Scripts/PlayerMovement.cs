@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     #region Move
     private void Move()
     {
-        Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, inputVector.y * Time.deltaTime, 0f);
+        Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, 0f, 0f);
         rb.position += movementDelta;
     }
 
