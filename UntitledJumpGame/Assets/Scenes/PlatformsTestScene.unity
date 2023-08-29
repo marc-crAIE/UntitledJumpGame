@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 112407887}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1925649220}
@@ -390,7 +390,8 @@ GameObject:
   - component: {fileID: 1925649227}
   - component: {fileID: 1925649226}
   - component: {fileID: 1925649225}
-  - component: {fileID: 1925649224}
+  - component: {fileID: 1925649229}
+  - component: {fileID: 1925649228}
   - component: {fileID: 1925649223}
   - component: {fileID: 1925649222}
   - component: {fileID: 1925649221}
@@ -410,7 +411,7 @@ Transform:
   m_GameObject: {fileID: 1925649219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 112407888}
@@ -458,8 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31420d5c41315234d9409f1f19f6e5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
-  fallMultiplier: 5
+  jumpForce: 10
+  fallMultiplier: 10
 --- !u!114 &1925649223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,20 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   tiltMoveSpeed: 5
---- !u!136 &1925649224
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925649219}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1925649225
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -554,6 +541,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925649219}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1925649228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925649219}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5, z: 1}
+  m_Center: {x: 0, y: -0.85090715, z: 0}
+--- !u!136 &1925649229
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925649219}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1931319778
 GameObject:
   m_ObjectHideFlags: 0
