@@ -38,17 +38,17 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, inputVector.y * Time.deltaTime, 0f);
-        transform.position += movementDelta;
+        rb.position += movementDelta;
     }
 
     private void Tilt()
     {
         directionX = Input.acceleration.x * tiltMoveSpeed;
         
-        var position = transform.position;
+        var position = rb.position;
         position = new Vector2(Mathf.Clamp(position.x, -25f, 25f), position.y);
         
-        transform.position = position;
+        rb.position = position;
     }
     
     private void OnMove(InputValue value)
