@@ -52,6 +52,7 @@ public class EnemyBulletManager : MonoBehaviour
             EnemyBullet bullet = inactiveBullets.First.Value;
             inactiveBullets.Remove(bullet);
             activeBullets.AddLast(bullet);
+            bullet.transform.SetParent(startPosition.parent);
             bullet.Spawn(startPosition, targetPosition, speed);
         }
         //if the inactive list is empty
@@ -61,6 +62,7 @@ public class EnemyBulletManager : MonoBehaviour
             EnemyBullet bullet = activeBullets.First.Value;
             activeBullets.Remove(bullet);
             activeBullets.AddLast(bullet);
+            bullet.transform.SetParent(startPosition.parent);
             bullet.Spawn(startPosition, targetPosition, speed);
         }
     }
