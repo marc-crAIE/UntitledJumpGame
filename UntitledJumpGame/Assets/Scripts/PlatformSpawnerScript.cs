@@ -105,7 +105,7 @@ public class PlatformSpawnerScript : MonoBehaviour
         }
         
         // TEMPORARY
-        transform.position -= new Vector3(0, 2.0f, 0.0f) * Time.deltaTime;
+        //transform.position -= new Vector3(0, 2.0f, 0.0f) * Time.deltaTime;
     }
 
     #endregion
@@ -138,5 +138,10 @@ public class PlatformSpawnerScript : MonoBehaviour
             // We have skipped a platform spawn.. increment the skip count
             _spawnSkipCount++;
         }
+    }
+
+    public void MovePlatforms(float moveDistance)
+    {
+        transform.position -= new Vector3(0, moveDistance, 0);
     }
 }

@@ -94,7 +94,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7726016946745775657}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -196,6 +196,7 @@ MonoBehaviour:
   wiggleFrequency: 5
   enemyMesh: {fileID: 7726016946745775657}
   movementSpeed: 0.4
+  defaultMovementSpeed: 0.4
   leftEdge: -4
   rightEdge: 4
   lerpAcceleration:
