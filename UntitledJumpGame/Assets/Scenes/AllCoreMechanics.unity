@@ -591,15 +591,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2998063423619744103, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2998063423619744103, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2998063423619744103, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2998063423619744103, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -617,6 +617,10 @@ PrefabInstance:
       propertyPath: jumper
       value: 
       objectReference: {fileID: 1077466575}
+    - target: {fileID: 2998063424540238691, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2998063424540238691, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: platformMover
       value: 
@@ -820,6 +824,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   platform: {fileID: 1654830712093821268, guid: 926f6f5d97c88754188d87fa21104123, type: 3}
   spawnChance: 0.2
-  maxPlatformSkips: 6
+  maxPlatformSkips: 3
   spawnPlatformStartHeight: 8
-  spaceAfterSpawnPlatform: 6
+  spaceAfterSpawnPlatform: 3

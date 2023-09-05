@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, 0f, 0f);
         if (jumper.alive)
         {
-            this.transform.position += movementDelta;
+            rb.position += movementDelta;
         }
     }
 

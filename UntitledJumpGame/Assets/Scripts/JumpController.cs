@@ -5,6 +5,7 @@ using UnityEngine;
 public class JumpController : MonoBehaviour
 {
     public bool alive = true;
+    private Transform _transform;
     private Rigidbody rb;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float fallMultiplier;
@@ -17,17 +18,22 @@ public class JumpController : MonoBehaviour
     {
         vecGravity = new Vector3(0, -Physics.gravity.y, 0f);
         rb = GetComponent<Rigidbody>();
+        _transform = transform;
     }
 
     void Update()
     {
+        var velocity = vecGravity * (fallMultiplier * Time.deltaTime);
+        
         if (rb.velocity.y < 0f)
         {
-            rb.velocity -= vecGravity * (fallMultiplier * Time.deltaTime);
+            rb.velocity -= velocity;
         }
-        if (this.transform.position.y > 0)
+        if (this.transform.position.y > -transform.localScale.y)
         {
-            platformMover.MovePlatforms(this.transform.position.y);
+            var position = this.transform.position;
+            platformMover.MovePlatforms(velocity.y * 2);
+            this.transform.position = new Vector3(position.x, position.y - velocity.y, position.z);
         }
     }
     

@@ -10,7 +10,7 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         //move forward at the set speed
-        this.gameObject.transform.Translate(this.gameObject.transform.forward * speed * Time.deltaTime, Space.World);
+        this.gameObject.transform.Translate(this.gameObject.transform.forward * (speed * Time.deltaTime), Space.World);
     }
 
     /// <summary>
