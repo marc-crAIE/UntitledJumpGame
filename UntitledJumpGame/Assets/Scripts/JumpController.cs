@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JumpController : MonoBehaviour
 {
+    public bool alive = true;
     private Rigidbody rb;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float fallMultiplier;
@@ -32,9 +33,15 @@ public class JumpController : MonoBehaviour
     
     void OnTriggerEnter(Collider collision)
     {
-        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Spawn Platform")) && rb.velocity.y <= 0)
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Spawn Platform")) && rb.velocity.y <= 0 && alive)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);            
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            alive = false;
+            rb.velocity = Vector3.zero;
+            fallMultiplier = 10f;
         }
     }
 }

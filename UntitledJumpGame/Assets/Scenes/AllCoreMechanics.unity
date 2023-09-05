@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2998063424540238688, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
+      propertyPath: jumper
+      value: 
+      objectReference: {fileID: 1077466575}
     - target: {fileID: 2998063424540238691, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: platformMover
       value: 
@@ -641,6 +645,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2998063423619744103, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
   m_PrefabInstance: {fileID: 1077466571}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077466575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2998063424540238691, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
+  m_PrefabInstance: {fileID: 1077466571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077466572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31420d5c41315234d9409f1f19f6e5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1654689517
 GameObject:
   m_ObjectHideFlags: 0
