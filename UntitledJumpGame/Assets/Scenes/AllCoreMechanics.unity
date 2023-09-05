@@ -617,6 +617,10 @@ PrefabInstance:
       propertyPath: jumper
       value: 
       objectReference: {fileID: 1077466575}
+    - target: {fileID: 2998063424540238688, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
+      propertyPath: tiltMoveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2998063424540238691, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: jumpForce
       value: 10
