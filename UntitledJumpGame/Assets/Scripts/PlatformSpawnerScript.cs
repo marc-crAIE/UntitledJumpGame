@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,6 +33,9 @@ public class PlatformSpawnerScript : MonoBehaviour
 
     private GameObject[] _platforms;
     private int _currentPlatformIdx;
+
+    private float score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     #endregion
 
@@ -143,5 +147,7 @@ public class PlatformSpawnerScript : MonoBehaviour
     public void MovePlatforms(float moveDistance)
     {
         transform.position -= new Vector3(0, moveDistance * Time.deltaTime, 0);
+        score += moveDistance * 0.1f;
+        scoreText.SetText("" + (int)score);
     }
 }
