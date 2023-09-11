@@ -29,11 +29,11 @@ public class JumpController : MonoBehaviour
         {
             rb.velocity -= velocity;
         }
-        if (this.transform.position.y > -transform.localScale.y)
+        if (this.rb.position.y >= -transform.localScale.y)
         {
             var position = this.transform.position;
-            platformMover.MovePlatforms(velocity.y * 2);
-            this.transform.position = new Vector3(position.x, position.y - velocity.y, position.z);
+            platformMover.MovePlatforms(rb.velocity.y);
+            this.rb.position = new Vector3(rb.position.x, -transform.localScale.y, rb.position.z);
         }
     }
     

@@ -142,6 +142,6 @@ public class PlatformSpawnerScript : MonoBehaviour
 
     public void MovePlatforms(float moveDistance)
     {
-        transform.position -= new Vector3(0, moveDistance, 0);
+        transform.position -= new Vector3(0, moveDistance * Time.deltaTime, 0);
     }
 }
