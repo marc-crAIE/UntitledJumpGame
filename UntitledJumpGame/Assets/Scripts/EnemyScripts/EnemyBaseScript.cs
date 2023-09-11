@@ -7,6 +7,7 @@ public class EnemyBaseScript : MonoBehaviour
     //hold the movement and the combat scripts of this enemy
     [SerializeField] private EnemyCombat combatController;
     [SerializeField] private EnemyMovement movementController;
+    [SerializeField] private ParticleSystem particles;
 
     [SerializeField] protected AudioClip bop1;
     [SerializeField] protected AudioClip bop2;
@@ -22,7 +23,14 @@ public class EnemyBaseScript : MonoBehaviour
         if (movementController == null)
         {
             movementController = GetComponent<EnemyMovement>();
-        }    
+        }
+        if (particles == null)
+        {
+            particles = GetComponent<ParticleSystem>();
+        }
+
+        var main = particles.main;
+        main.customSimulationSpace = this.transform.parent;
     }
 
     private void FixedUpdate()
