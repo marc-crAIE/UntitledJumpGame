@@ -11,6 +11,12 @@ public class EnemyBullet : MonoBehaviour
     {
         //move forward at the set speed
         this.gameObject.transform.Translate(this.gameObject.transform.forward * (speed * Time.deltaTime), Space.World);
+
+        //similar to the enemy times by 0.6 so that the bullet has time to elave the screen before deactivating
+        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.6)
+        {
+            Die();
+        }
     }
 
     /// <summary>

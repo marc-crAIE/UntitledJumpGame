@@ -566,7 +566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 687500171214012184, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
       propertyPath: maxTimeBetweenShots
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 687500171214012184, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
       propertyPath: minTimeBetweenShots
