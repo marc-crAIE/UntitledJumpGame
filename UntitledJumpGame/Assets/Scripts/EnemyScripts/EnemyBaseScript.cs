@@ -7,6 +7,10 @@ public class EnemyBaseScript : MonoBehaviour
     //hold the movement and the combat scripts of this enemy
     [SerializeField] private EnemyCombat combatController;
     [SerializeField] private EnemyMovement movementController;
+    [SerializeField] private ParticleSystem particles;
+
+    [SerializeField] protected AudioClip bop1;
+    [SerializeField] protected AudioClip bop2;
 
     void Start()
     {
@@ -19,13 +23,21 @@ public class EnemyBaseScript : MonoBehaviour
         if (movementController == null)
         {
             movementController = GetComponent<EnemyMovement>();
-        }    
+        }
+        if (particles == null)
+        {
+            particles = GetComponent<ParticleSystem>();
+        }
+
+        var main = particles.main;
+        main.customSimulationSpace = this.transform.parent;
     }
 
     private void FixedUpdate()
     {
         //check fi this enemy has moved below the edge of the screen
-        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.5)
+        //normally times by 0.5 but it will disappear when half the enemy is off the screen so giving another 0.05 vertical screen space to ensure it is off the screen first
+        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.6)
         {
             //if the enemy is below the screen kill this enemy
             combatController.StopAllCoroutines();
@@ -86,5 +98,19 @@ public class EnemyBaseScript : MonoBehaviour
     public void Die()
     {
         EnemyManager._instance.DeactivateEnemy(this);
+    }
+
+    public AudioClip GetShootingSound()
+    {
+        int choice = Random.Range(0, 2);
+
+        switch(choice)
+        {
+            case 0:
+                return bop1;
+            case 1:
+            default:
+                return bop2;
+        }
     }
 }

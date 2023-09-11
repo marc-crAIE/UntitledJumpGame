@@ -6,11 +6,26 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     float speed = 0;
+    [SerializeField] private ParticleSystem particles;
+
+    void Start()
+    {
+        if (particles == null)
+        {
+            particles = GetComponent<ParticleSystem>();
+        }
+    }
 
     void Update()
     {
         //move forward at the set speed
         this.gameObject.transform.Translate(this.gameObject.transform.forward * (speed * Time.deltaTime), Space.World);
+
+        //similar to the enemy times by 0.6 so that the bullet has time to elave the screen before deactivating
+        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.6)
+        {
+            Die();
+        }
     }
 
     /// <summary>
@@ -51,6 +66,11 @@ public class EnemyBullet : MonoBehaviour
         this.gameObject.transform.LookAt(target.position);
         //set this bullet to active
         this.gameObject.SetActive(true);
+        //set the parent of the particles to the moving world
+        var main = particles.main;
+        main.customSimulationSpace = this.transform.parent;
+        //clear all partricles to remove a line of particles that spawns when the bullet becomes active
+        particles.Clear(true);
     }
 
     /// <summary>
