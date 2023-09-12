@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
         Rigidbody rb;
         Vector2 inputVector;
         private float directionX;
+        public JumpController jumper;
     #endregion Variables
     
     private void Start()
@@ -38,7 +39,10 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, 0f, 0f);
-        rb.position += movementDelta;
+        if (jumper.alive)
+        {
+            rb.position += movementDelta;
+        }
     }
 
     private void Tilt()

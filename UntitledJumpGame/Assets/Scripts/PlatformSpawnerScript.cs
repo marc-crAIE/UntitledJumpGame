@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,6 +33,9 @@ public class PlatformSpawnerScript : MonoBehaviour
 
     private GameObject[] _platforms;
     private int _currentPlatformIdx;
+
+    private float score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     #endregion
 
@@ -105,7 +109,7 @@ public class PlatformSpawnerScript : MonoBehaviour
         }
         
         // TEMPORARY
-        transform.position -= new Vector3(0, 2.0f, 0.0f) * Time.deltaTime;
+        //transform.position -= new Vector3(0, 2.0f, 0.0f) * Time.deltaTime;
     }
 
     #endregion
@@ -138,5 +142,12 @@ public class PlatformSpawnerScript : MonoBehaviour
             // We have skipped a platform spawn.. increment the skip count
             _spawnSkipCount++;
         }
+    }
+
+    public void MovePlatforms(float moveDistance)
+    {
+        transform.position -= new Vector3(0, moveDistance * Time.deltaTime, 0);
+        score += moveDistance * 0.1f;
+        scoreText.SetText("" + (int)score);
     }
 }

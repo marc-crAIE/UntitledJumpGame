@@ -4,31 +4,50 @@ using UnityEngine;
 
 public class JumpController : MonoBehaviour
 {
+    public bool alive = true;
+    private Transform _transform;
     private Rigidbody rb;
     [SerializeField] private float jumpForce = 10.0f;
     [SerializeField] private float fallMultiplier;
     private Vector3 vecGravity;
+
+    public PlatformSpawnerScript platformMover;
     
     // Start is called before the first frame update
     void Start()
     {
         vecGravity = new Vector3(0, -Physics.gravity.y, 0f);
         rb = GetComponent<Rigidbody>();
+        _transform = transform;
     }
 
     void Update()
     {
+        var velocity = vecGravity * (fallMultiplier * Time.deltaTime);
+        
         if (rb.velocity.y < 0f)
         {
-            rb.velocity -= vecGravity * (fallMultiplier * Time.deltaTime);
+            rb.velocity -= velocity;
+        }
+        if (this.rb.position.y >= -transform.localScale.y)
+        {
+            var position = this.transform.position;
+            platformMover.MovePlatforms(rb.velocity.y);
+            this.rb.position = new Vector3(rb.position.x, -transform.localScale.y, rb.position.z);
         }
     }
     
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Spawn Platform")) && rb.velocity.y <= 0 && alive)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);            
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            alive = false;
+            rb.velocity = Vector3.zero;
+            fallMultiplier = 10f;
         }
     }
 }
