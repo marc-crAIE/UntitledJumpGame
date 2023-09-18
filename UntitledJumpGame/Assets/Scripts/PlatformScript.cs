@@ -82,10 +82,11 @@ public class PlatformScript : MonoBehaviour
         {
             float platformSize = transform.localScale.x;
             float areaHalfWidth = (_areaWidth / 2.0f) - platformSize;
-            if (transform.position.x - platformSize <= -areaHalfWidth || transform.position.x + platformSize >= areaHalfWidth)
+            if ((transform.position.x - platformSize <= -areaHalfWidth && moveDir == -1) || 
+                (transform.position.x + platformSize >= areaHalfWidth && moveDir == 1))
                 moveDir *= -1;
             
-            transform.position += Vector3.left * (moveDir * moveSpeed * Time.deltaTime); 
+            transform.position += Vector3.right * (moveDir * moveSpeed * Time.deltaTime); 
         }
     }
 

@@ -16,9 +16,9 @@ public class PlatformSpawnerScript : MonoBehaviour
     public int spawnPlatformStartHeight = 8;
     public int spaceAfterSpawnPlatform = 6;
 
-    public float basicPlatformChance = 0.7f;
-    public float movingPlatformChance = 0.2f;
-    public float breakablePlatformChance = 0.1f;
+    public float basicPlatformChance = 0.85f;
+    public float movingPlatformChance = 0.1f;
+    public float breakablePlatformChance = 0.05f;
         
     #endregion
 

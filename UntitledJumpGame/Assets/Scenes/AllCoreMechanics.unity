@@ -1506,4 +1506,7 @@ MonoBehaviour:
   maxPlatformSkips: 3
   spawnPlatformStartHeight: 8
   spaceAfterSpawnPlatform: 3
+  basicPlatformChance: 0.85
+  movingPlatformChance: 0.1
+  breakablePlatformChance: 0.05
   scoreText: {fileID: 314527608}
