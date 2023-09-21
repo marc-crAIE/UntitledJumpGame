@@ -19,6 +19,7 @@ public class PlatformSpawnerScript : MonoBehaviour
     public int maxPlatformSkips;
     public int spawnPlatformStartHeight = 8;
     public int spaceAfterSpawnPlatform = 6;
+    public int maxPlatformXSpacing = 4;
 
     public float basicPlatformChance = 0.85f;
     public float movingPlatformChance = 0.1f;
@@ -36,6 +37,7 @@ public class PlatformSpawnerScript : MonoBehaviour
     private float _gridUnitHeight;
     private int _numberOfPlatforms;
 
+    private Vector3 _prevSpawnPos;
     private Vector3 _prevSpawnCheckPos;
     private int _spawnSkipCount;
 
@@ -145,7 +147,14 @@ public class PlatformSpawnerScript : MonoBehaviour
         if (Random.Range(0.0f, 1.0f) <= spawnChance || _spawnSkipCount >= maxPlatformSkips || spawn)
         {
             // Pick a random x position
-            float posX = !spawn ? Random.Range(0, _areaWidth) - (_areaWidth / 2.0f) : x;
+            float areaHalfWidth = _areaWidth / 2.0f;
+            float xMin = _prevSpawnPos.x - maxPlatformXSpacing <= -areaHalfWidth
+                ? -areaHalfWidth
+                : _prevSpawnPos.x - maxPlatformXSpacing;
+            float xMax = _prevSpawnPos.x + maxPlatformXSpacing >= areaHalfWidth
+                ? areaHalfWidth
+                : _prevSpawnPos.x + maxPlatformXSpacing;
+            float posX = !spawn ? Random.Range(xMin, xMax) : x;
             var spawnPos = new Vector3(posX, y, 0);
             
             // Set the transform position of the platform and re-activate it
@@ -172,6 +181,8 @@ public class PlatformSpawnerScript : MonoBehaviour
             _currentPlatformIdx = (_currentPlatformIdx + 1) % _numberOfPlatforms;
             // Reset the spawn skip count
             _spawnSkipCount = 0;
+
+            _prevSpawnPos = _platforms[_currentPlatformIdx].transform.position;
         }
         else
         {
