@@ -565,12 +565,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 687500171214012184, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
+      propertyPath: bulletSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 687500171214012184, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
       propertyPath: maxTimeBetweenShots
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 687500171214012184, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
       propertyPath: minTimeBetweenShots
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8500681116870463862, guid: b156c70ce91b6214682448dfa01fdcc6, type: 3}
       propertyPath: InitialModule.maxNumParticles
