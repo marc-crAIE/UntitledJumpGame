@@ -1,0 +1,95 @@
+\doxysection{Enemy\+Bullet\+Manager Class Reference}
+\hypertarget{class_enemy_bullet_manager}{}\label{class_enemy_bullet_manager}\index{EnemyBulletManager@{EnemyBulletManager}}
+
+
+Spawns and manages bullets in a pooling system.  
+
+
+Inheritance diagram for Enemy\+Bullet\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_bullet_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_bullet_manager_ada8944afe06e3c17e667a7db5e241e75}{Spawn\+Bullet}} (Transform start\+Position, Transform target\+Position, float speed)
+\begin{DoxyCompactList}\small\item\em spawns a new bullet at the desired location with the desired direction and speed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_bullet_manager_a37140cde208da910e4fa778f4dfaf8d6}{De\+Spawn\+Bullet}} (\mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}} bullet)
+\begin{DoxyCompactList}\small\item\em moves bullets between the active list to inactive list \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_bullet_manager_a8ee5b8a499bf4e4f0c4c446609e42afc}\label{class_enemy_bullet_manager_a8ee5b8a499bf4e4f0c4c446609e42afc} 
+static \mbox{\hyperlink{class_enemy_bullet_manager}{Enemy\+Bullet\+Manager}} {\bfseries \+\_\+instance}
+\item 
+\Hypertarget{class_enemy_bullet_manager_a88900f07b833c1e5da6ee1cd3a504039}\label{class_enemy_bullet_manager_a88900f07b833c1e5da6ee1cd3a504039} 
+const int {\bfseries MAX\+\_\+\+BULLETS} = 10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_bullet_manager_a1a0a6dc07fc45b281244651ff53328b7}\label{class_enemy_bullet_manager_a1a0a6dc07fc45b281244651ff53328b7} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_enemy_bullet_manager_aab674cf7c1da45d4ba312325344f2a4e}\label{class_enemy_bullet_manager_aab674cf7c1da45d4ba312325344f2a4e} 
+void {\bfseries Create\+New\+Bullet} ()
+\begin{DoxyCompactList}\small\item\em instantiates a new bullet to be used in the booling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_bullet_manager_ac00fae598d9d133087fb3aa84ce41f96}\label{class_enemy_bullet_manager_ac00fae598d9d133087fb3aa84ce41f96} 
+\mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}} {\bfseries bullet\+Prefab}
+\item 
+\Hypertarget{class_enemy_bullet_manager_a15c665eeaee9404966c659016a667df2}\label{class_enemy_bullet_manager_a15c665eeaee9404966c659016a667df2} 
+Linked\+List$<$ \mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}} $>$ {\bfseries inactive\+Bullets} = new Linked\+List$<$\mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}}$>$()
+\item 
+\Hypertarget{class_enemy_bullet_manager_a4734564995c1a8666efda8ddf14f8057}\label{class_enemy_bullet_manager_a4734564995c1a8666efda8ddf14f8057} 
+Linked\+List$<$ \mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}} $>$ {\bfseries active\+Bullets} = new Linked\+List$<$\mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}}$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Spawns and manages bullets in a pooling system. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_bullet_manager_a37140cde208da910e4fa778f4dfaf8d6}\label{class_enemy_bullet_manager_a37140cde208da910e4fa778f4dfaf8d6} 
+\index{EnemyBulletManager@{EnemyBulletManager}!DeSpawnBullet@{DeSpawnBullet}}
+\index{DeSpawnBullet@{DeSpawnBullet}!EnemyBulletManager@{EnemyBulletManager}}
+\doxysubsubsection{\texorpdfstring{DeSpawnBullet()}{DeSpawnBullet()}}
+{\footnotesize\ttfamily void Enemy\+Bullet\+Manager.\+De\+Spawn\+Bullet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy_bullet}{Enemy\+Bullet}}}]{bullet }\end{DoxyParamCaption})}
+
+
+
+moves bullets between the active list to inactive list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bullet} & bullet to deactive\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_bullet_manager_ada8944afe06e3c17e667a7db5e241e75}\label{class_enemy_bullet_manager_ada8944afe06e3c17e667a7db5e241e75} 
+\index{EnemyBulletManager@{EnemyBulletManager}!SpawnBullet@{SpawnBullet}}
+\index{SpawnBullet@{SpawnBullet}!EnemyBulletManager@{EnemyBulletManager}}
+\doxysubsubsection{\texorpdfstring{SpawnBullet()}{SpawnBullet()}}
+{\footnotesize\ttfamily void Enemy\+Bullet\+Manager.\+Spawn\+Bullet (\begin{DoxyParamCaption}\item[{Transform}]{start\+Position,  }\item[{Transform}]{target\+Position,  }\item[{float}]{speed }\end{DoxyParamCaption})}
+
+
+
+spawns a new bullet at the desired location with the desired direction and speed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Position} & start position which the bullet will start\\
+\hline
+{\em target\+Position} & target which will shoot the bullet towards\\
+\hline
+{\em speed} & speed at which the bullet will move\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Enemy\+Scripts/Enemy\+Bullet\+Manager.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+\doxysection{Platform\+Script Class Reference}
+\hypertarget{class_platform_script}{}\label{class_platform_script}\index{PlatformScript@{PlatformScript}}
+
+
+The script for controlling the behaviour of platforms.  
+
+
+Inheritance diagram for Platform\+Script\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_platform_script}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_script_ab87fe034f2efc998e2e9417b11d2bead}\label{class_platform_script_ab87fe034f2efc998e2e9417b11d2bead} 
+enum {\bfseries Platform\+Type} \{ {\bfseries Basic}
+, {\bfseries Moving}
+, {\bfseries Breakable}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_platform_script_aac0398ae9838c9ee37fecefd3121427d}{Set\+Type}} (Platform\+Type new\+Type)
+\begin{DoxyCompactList}\small\item\em Sets the platforms type and changes its color. \end{DoxyCompactList}\item 
+\Hypertarget{class_platform_script_ae1cce522af4cba8601b27a7c1618f516}\label{class_platform_script_ae1cce522af4cba8601b27a7c1618f516} 
+void {\bfseries On\+Bounced\+From} ()
+\begin{DoxyCompactList}\small\item\em Called when the platform is bounced on by the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_script_a68c244f3f2a54cf53e7547ef54cdf157}\label{class_platform_script_a68c244f3f2a54cf53e7547ef54cdf157} 
+Platform\+Type {\bfseries type}
+\item 
+\Hypertarget{class_platform_script_ae89783fecbf28e830574caf8b15b6d5e}\label{class_platform_script_ae89783fecbf28e830574caf8b15b6d5e} 
+float {\bfseries area\+Height\+Offset} = 1.\+0f
+\item 
+\Hypertarget{class_platform_script_a60f7825122fc27e03a2620419f5cab06}\label{class_platform_script_a60f7825122fc27e03a2620419f5cab06} 
+float {\bfseries move\+Speed} = 2.\+0f
+\item 
+\Hypertarget{class_platform_script_af8751b9de9637cc81f3570401456760a}\label{class_platform_script_af8751b9de9637cc81f3570401456760a} 
+Color {\bfseries basic\+Color} = new Color32(124, 245, 131, 255)
+\item 
+\Hypertarget{class_platform_script_a75dd56f98fdf64907704349f99312412}\label{class_platform_script_a75dd56f98fdf64907704349f99312412} 
+Color {\bfseries moving\+Color} = new Color32(61, 161, 241, 255)
+\item 
+\Hypertarget{class_platform_script_a82273bbde5b68acd8911c0f24549f503}\label{class_platform_script_a82273bbde5b68acd8911c0f24549f503} 
+Color {\bfseries breakable\+Color} = new Color32(147, 95, 53, 255)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_script_ac676eb155c5e4e0ab7b7fc1a0f768568}\label{class_platform_script_ac676eb155c5e4e0ab7b7fc1a0f768568} 
+void {\bfseries Start} ()
+\begin{DoxyCompactList}\small\item\em The initial function called when the platform is instantiated. \end{DoxyCompactList}\item 
+\Hypertarget{class_platform_script_ab76b294764ca38440fb50a28b158f088}\label{class_platform_script_ab76b294764ca38440fb50a28b158f088} 
+void {\bfseries Set\+Color\+From\+Type} ()
+\begin{DoxyCompactList}\small\item\em Set the color of the platform based on its type. \end{DoxyCompactList}\item 
+\Hypertarget{class_platform_script_a03f515e16464a6dff91e46862b086f32}\label{class_platform_script_a03f515e16464a6dff91e46862b086f32} 
+void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em Update the platform once per frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_script_a34c19e57029a3cdd946e6fddef6237b8}\label{class_platform_script_a34c19e57029a3cdd946e6fddef6237b8} 
+Camera {\bfseries \+\_\+camera}
+\item 
+\Hypertarget{class_platform_script_aa167b6ca549d4699d705ae71e1219559}\label{class_platform_script_aa167b6ca549d4699d705ae71e1219559} 
+float {\bfseries \+\_\+area\+Width}
+\item 
+\Hypertarget{class_platform_script_a5298b947da57dace4170c9f4553dd16e}\label{class_platform_script_a5298b947da57dace4170c9f4553dd16e} 
+float {\bfseries \+\_\+area\+Height}
+\item 
+\Hypertarget{class_platform_script_a057ff60a296749bfee222e00b516ebad}\label{class_platform_script_a057ff60a296749bfee222e00b516ebad} 
+int {\bfseries move\+Dir} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The script for controlling the behaviour of platforms. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_platform_script_aac0398ae9838c9ee37fecefd3121427d}\label{class_platform_script_aac0398ae9838c9ee37fecefd3121427d} 
+\index{PlatformScript@{PlatformScript}!SetType@{SetType}}
+\index{SetType@{SetType}!PlatformScript@{PlatformScript}}
+\doxysubsubsection{\texorpdfstring{SetType()}{SetType()}}
+{\footnotesize\ttfamily void Platform\+Script.\+Set\+Type (\begin{DoxyParamCaption}\item[{Platform\+Type}]{new\+Type }\end{DoxyParamCaption})}
+
+
+
+Sets the platforms type and changes its color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Type} & The new platform type\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/Platform\+Script.\+cs\end{DoxyCompactItemize}

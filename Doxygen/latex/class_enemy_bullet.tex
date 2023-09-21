@@ -1,0 +1,86 @@
+\doxysection{Enemy\+Bullet Class Reference}
+\hypertarget{class_enemy_bullet}{}\label{class_enemy_bullet}\index{EnemyBullet@{EnemyBullet}}
+
+
+Bullet class used to update this bullet in game, with the possibility to set a new position and target when spawning.  
+
+
+Inheritance diagram for Enemy\+Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_bullet}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_bullet_aa2c49433a73375c6d21701bafcbb2a4d}{Spawn}} (Transform start\+Position, Transform target, float speed)
+\begin{DoxyCompactList}\small\item\em moves the bullet to the set location, looks at the target then sets the movement speed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_bullet_a72dd5630cc4609613cb9a13e645a563f}\label{class_enemy_bullet_a72dd5630cc4609613cb9a13e645a563f} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_enemy_bullet_af80b5682017f67514603b73598106901}\label{class_enemy_bullet_af80b5682017f67514603b73598106901} 
+void {\bfseries Update} ()
+\item 
+void \mbox{\hyperlink{class_enemy_bullet_a603dfe73dd04771d253a56e196fc91f6}{On\+Trigger\+Enter}} (Collider other)
+\begin{DoxyCompactList}\small\item\em On trigger enter catch. \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_bullet_ab53ca90094faa39c10a7cda58855a5e5}\label{class_enemy_bullet_ab53ca90094faa39c10a7cda58855a5e5} 
+void {\bfseries Die} ()
+\begin{DoxyCompactList}\small\item\em disables this bullet and calls the function in bullet manager to move it to the inactive list \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_bullet_ad2d5ebfe688ee35b36032b6a8323b4eb}\label{class_enemy_bullet_ad2d5ebfe688ee35b36032b6a8323b4eb} 
+float {\bfseries speed} = 0
+\item 
+\Hypertarget{class_enemy_bullet_a123999fd611a41b5604c284171978b14}\label{class_enemy_bullet_a123999fd611a41b5604c284171978b14} 
+Particle\+System {\bfseries particles}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bullet class used to update this bullet in game, with the possibility to set a new position and target when spawning. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_bullet_a603dfe73dd04771d253a56e196fc91f6}\label{class_enemy_bullet_a603dfe73dd04771d253a56e196fc91f6} 
+\index{EnemyBullet@{EnemyBullet}!OnTriggerEnter@{OnTriggerEnter}}
+\index{OnTriggerEnter@{OnTriggerEnter}!EnemyBullet@{EnemyBullet}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter()}{OnTriggerEnter()}}
+{\footnotesize\ttfamily void Enemy\+Bullet.\+On\+Trigger\+Enter (\begin{DoxyParamCaption}\item[{Collider}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+On trigger enter catch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & object the collision trigger is activated with\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_bullet_aa2c49433a73375c6d21701bafcbb2a4d}\label{class_enemy_bullet_aa2c49433a73375c6d21701bafcbb2a4d} 
+\index{EnemyBullet@{EnemyBullet}!Spawn@{Spawn}}
+\index{Spawn@{Spawn}!EnemyBullet@{EnemyBullet}}
+\doxysubsubsection{\texorpdfstring{Spawn()}{Spawn()}}
+{\footnotesize\ttfamily void Enemy\+Bullet.\+Spawn (\begin{DoxyParamCaption}\item[{Transform}]{start\+Position,  }\item[{Transform}]{target,  }\item[{float}]{speed }\end{DoxyParamCaption})}
+
+
+
+moves the bullet to the set location, looks at the target then sets the movement speed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Position} & position to move to\\
+\hline
+{\em target} & target to look at\\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Enemy\+Scripts/Enemy\+Bullet.\+cs\end{DoxyCompactItemize}

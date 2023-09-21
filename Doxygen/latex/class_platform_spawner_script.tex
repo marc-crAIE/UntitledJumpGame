@@ -1,0 +1,140 @@
+\doxysection{Platform\+Spawner\+Script Class Reference}
+\hypertarget{class_platform_spawner_script}{}\label{class_platform_spawner_script}\index{PlatformSpawnerScript@{PlatformSpawnerScript}}
+
+
+The Platform Spawner is responsible for managing the spawning of platforms and essentially the core of the level design.  
+
+
+Inheritance diagram for Platform\+Spawner\+Script\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_platform_spawner_script}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_platform_spawner_script_a3b9b8276ac44f34be20725d9b2d05edf}{Move\+Platforms}} (float move\+Distance)
+\begin{DoxyCompactList}\small\item\em Move the platforms by a given distance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_spawner_script_af1c79aec6047c21e5c9f3221e1d554a7}\label{class_platform_spawner_script_af1c79aec6047c21e5c9f3221e1d554a7} 
+Game\+Object {\bfseries platform}
+\item 
+\Hypertarget{class_platform_spawner_script_ac24778a6ac6850aed4cc0162fc972f95}\label{class_platform_spawner_script_ac24778a6ac6850aed4cc0162fc972f95} 
+float {\bfseries spawn\+Chance}
+\item 
+\Hypertarget{class_platform_spawner_script_aba93a8e0692f91898eeff8965991b7a1}\label{class_platform_spawner_script_aba93a8e0692f91898eeff8965991b7a1} 
+int {\bfseries max\+Platform\+Skips}
+\item 
+\Hypertarget{class_platform_spawner_script_aaba313d0d75198d1c33fa7f42a62c52d}\label{class_platform_spawner_script_aaba313d0d75198d1c33fa7f42a62c52d} 
+int {\bfseries spawn\+Platform\+Start\+Height} = 8
+\item 
+\Hypertarget{class_platform_spawner_script_add49852f5dcbfb93b4a88eead9eb8900}\label{class_platform_spawner_script_add49852f5dcbfb93b4a88eead9eb8900} 
+int {\bfseries space\+After\+Spawn\+Platform} = 6
+\item 
+\Hypertarget{class_platform_spawner_script_a6fc756d71415ef6079debd6f4af5c256}\label{class_platform_spawner_script_a6fc756d71415ef6079debd6f4af5c256} 
+int {\bfseries max\+Platform\+XSpacing} = 4
+\item 
+\Hypertarget{class_platform_spawner_script_a30e49a6393cd54a95eca68838df24ea2}\label{class_platform_spawner_script_a30e49a6393cd54a95eca68838df24ea2} 
+float {\bfseries basic\+Platform\+Chance} = 0.\+85f
+\item 
+\Hypertarget{class_platform_spawner_script_a8112a74d02153c7357dcc74f6bcc74c5}\label{class_platform_spawner_script_a8112a74d02153c7357dcc74f6bcc74c5} 
+float {\bfseries moving\+Platform\+Chance} = 0.\+1f
+\item 
+\Hypertarget{class_platform_spawner_script_af3bee3f3a0142af04af7aa0c9a16f722}\label{class_platform_spawner_script_af3bee3f3a0142af04af7aa0c9a16f722} 
+float {\bfseries breakable\+Platform\+Chance} = 0.\+05f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_spawner_script_af8db32d83ceef0604f8b8f058b129616}\label{class_platform_spawner_script_af8db32d83ceef0604f8b8f058b129616} 
+void {\bfseries Start} ()
+\begin{DoxyCompactList}\small\item\em The initial function called when the platform spawner is instantiated. \end{DoxyCompactList}\item 
+\Hypertarget{class_platform_spawner_script_a6eede3788cc79e9799421d4801933f71}\label{class_platform_spawner_script_a6eede3788cc79e9799421d4801933f71} 
+void {\bfseries Update} ()
+\begin{DoxyCompactList}\small\item\em Update the platform spawner once per frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_platform_spawner_script_acfd97e8a6514606228e7f8ff96913296}{Spawn\+Platform}} (float y, float x=0, bool spawn=false)
+\begin{DoxyCompactList}\small\item\em Spawn a new platform at a given Y position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_platform_spawner_script_aa5b4000afcd828610652aa7740fa2be5}\label{class_platform_spawner_script_aa5b4000afcd828610652aa7740fa2be5} 
+Camera {\bfseries \+\_\+camera}
+\item 
+\Hypertarget{class_platform_spawner_script_a4288463d47c66f7751a6b3ccdd4088d9}\label{class_platform_spawner_script_a4288463d47c66f7751a6b3ccdd4088d9} 
+float {\bfseries \+\_\+area\+Width}
+\item 
+\Hypertarget{class_platform_spawner_script_a59c323ca234d8be5dfda8a83bc4d879f}\label{class_platform_spawner_script_a59c323ca234d8be5dfda8a83bc4d879f} 
+float {\bfseries \+\_\+area\+Height}
+\item 
+\Hypertarget{class_platform_spawner_script_aaad96574e8819aeaed3c358b500924ee}\label{class_platform_spawner_script_aaad96574e8819aeaed3c358b500924ee} 
+int {\bfseries \+\_\+grid\+Height}
+\item 
+\Hypertarget{class_platform_spawner_script_adb7b17490c8bfe16cf698173d9649719}\label{class_platform_spawner_script_adb7b17490c8bfe16cf698173d9649719} 
+float {\bfseries \+\_\+grid\+Unit\+Height}
+\item 
+\Hypertarget{class_platform_spawner_script_a09b05d9aa34068c53c9ca7fb5bf4cd9e}\label{class_platform_spawner_script_a09b05d9aa34068c53c9ca7fb5bf4cd9e} 
+int {\bfseries \+\_\+number\+Of\+Platforms}
+\item 
+\Hypertarget{class_platform_spawner_script_a1579fae196b80dc518f5ae99c5bfd427}\label{class_platform_spawner_script_a1579fae196b80dc518f5ae99c5bfd427} 
+Vector3 {\bfseries \+\_\+prev\+Spawn\+Pos}
+\item 
+\Hypertarget{class_platform_spawner_script_ada6dfa8eff0fe4ea5731f90abf566b0a}\label{class_platform_spawner_script_ada6dfa8eff0fe4ea5731f90abf566b0a} 
+Vector3 {\bfseries \+\_\+prev\+Spawn\+Check\+Pos}
+\item 
+\Hypertarget{class_platform_spawner_script_af4d2f61753d1c67549594e474784db11}\label{class_platform_spawner_script_af4d2f61753d1c67549594e474784db11} 
+int {\bfseries \+\_\+spawn\+Skip\+Count}
+\item 
+\Hypertarget{class_platform_spawner_script_a4fa90604372626a9ed121dcb5444f511}\label{class_platform_spawner_script_a4fa90604372626a9ed121dcb5444f511} 
+Game\+Object\mbox{[}$\,$\mbox{]} {\bfseries \+\_\+platforms}
+\item 
+\Hypertarget{class_platform_spawner_script_a2c3c07d42ff82c01d4c1162a018ad1cc}\label{class_platform_spawner_script_a2c3c07d42ff82c01d4c1162a018ad1cc} 
+int {\bfseries \+\_\+current\+Platform\+Idx}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Platform Spawner is responsible for managing the spawning of platforms and essentially the core of the level design. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_platform_spawner_script_a3b9b8276ac44f34be20725d9b2d05edf}\label{class_platform_spawner_script_a3b9b8276ac44f34be20725d9b2d05edf} 
+\index{PlatformSpawnerScript@{PlatformSpawnerScript}!MovePlatforms@{MovePlatforms}}
+\index{MovePlatforms@{MovePlatforms}!PlatformSpawnerScript@{PlatformSpawnerScript}}
+\doxysubsubsection{\texorpdfstring{MovePlatforms()}{MovePlatforms()}}
+{\footnotesize\ttfamily void Platform\+Spawner\+Script.\+Move\+Platforms (\begin{DoxyParamCaption}\item[{float}]{move\+Distance }\end{DoxyParamCaption})}
+
+
+
+Move the platforms by a given distance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Distance} & The distance to move the platforms by\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_platform_spawner_script_acfd97e8a6514606228e7f8ff96913296}\label{class_platform_spawner_script_acfd97e8a6514606228e7f8ff96913296} 
+\index{PlatformSpawnerScript@{PlatformSpawnerScript}!SpawnPlatform@{SpawnPlatform}}
+\index{SpawnPlatform@{SpawnPlatform}!PlatformSpawnerScript@{PlatformSpawnerScript}}
+\doxysubsubsection{\texorpdfstring{SpawnPlatform()}{SpawnPlatform()}}
+{\footnotesize\ttfamily void Platform\+Spawner\+Script.\+Spawn\+Platform (\begin{DoxyParamCaption}\item[{float}]{y,  }\item[{float}]{x = {\ttfamily 0},  }\item[{bool}]{spawn = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Spawn a new platform at a given Y position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & The Y position to spawn the platform at\\
+\hline
+{\em x} & An optional X position to force the platform to spawn at if the spawn variable is true\\
+\hline
+{\em spawn} & Is the platform the spawn platform\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/Platform\+Spawner\+Script.\+cs\end{DoxyCompactItemize}

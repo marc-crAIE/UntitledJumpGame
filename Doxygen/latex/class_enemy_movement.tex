@@ -1,0 +1,155 @@
+\doxysection{Enemy\+Movement Class Reference}
+\hypertarget{class_enemy_movement}{}\label{class_enemy_movement}\index{EnemyMovement@{EnemyMovement}}
+
+
+Manages the movement and wiggling of the enemy objects.  
+
+
+Inheritance diagram for Enemy\+Movement\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_movement}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_movement_aab4b8e8156454d8ea293e38eb5fce351}{Spawn}} (Vector3 spawn\+Position)
+\begin{DoxyCompactList}\small\item\em move this enemy to the spawn location then re\+Activate it \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_movement_a79ee4e8d44175829774c97110af572c3}{Set\+Edges}} (float leftX, float rightX)
+\begin{DoxyCompactList}\small\item\em set the left and right edges of the screen this enemy will move between \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_movement_a57947518d50ca60ff1363c0a754e5998}{Set\+Movement\+Speed}} (float new\+Speed)
+\begin{DoxyCompactList}\small\item\em set the movement speed to the input speed \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_movement_a480df809c3f1a0c50dfcacf77a166eb7}\label{class_enemy_movement_a480df809c3f1a0c50dfcacf77a166eb7} 
+void {\bfseries Reset\+Movement\+Speed} ()
+\begin{DoxyCompactList}\small\item\em if the parameters are empty reset this movement speed to the default speed (speed set at the start of the game) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_movement_afec69d0e2459ec0e7080a5bae3633df2}\label{class_enemy_movement_afec69d0e2459ec0e7080a5bae3633df2} 
+Animation\+Curve {\bfseries lerp\+Acceleration}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_movement_a30b49b0198f3439055cbfd9019caee90}\label{class_enemy_movement_a30b49b0198f3439055cbfd9019caee90} 
+void {\bfseries Awake} ()
+\item 
+\Hypertarget{class_enemy_movement_a0b86b4146914c88876392b3e86fd43f2}\label{class_enemy_movement_a0b86b4146914c88876392b3e86fd43f2} 
+void {\bfseries Fixed\+Update} ()
+\item 
+\Hypertarget{class_enemy_movement_a762f7357f0a67cf69263648fe140915b}\label{class_enemy_movement_a762f7357f0a67cf69263648fe140915b} 
+void {\bfseries Reset\+Lerps} ()
+\begin{DoxyCompactList}\small\item\em Reset the lerping values to start when the enemy spawns. \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_movement_a9f5c4f19d31eb2009156c023094b1f85}\label{class_enemy_movement_a9f5c4f19d31eb2009156c023094b1f85} 
+void {\bfseries Get\+Wiggle\+Position} ()
+\begin{DoxyCompactList}\small\item\em get a random position to "{}wiggle"{} to \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_movement_a7859fecdcb43615a52d94628c72b12c3}\label{class_enemy_movement_a7859fecdcb43615a52d94628c72b12c3} 
+void {\bfseries Wiggle\+Lerp} ()
+\begin{DoxyCompactList}\small\item\em lerp to the wiggle position \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_movement_a92b25af2949525b56997faee64207137}\label{class_enemy_movement_a92b25af2949525b56997faee64207137} 
+void {\bfseries Move\+To\+Lerp} ()
+\begin{DoxyCompactList}\small\item\em update the enemy position based on the lerping position \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_movement_a951521d2c05c55660a6786605d12d36b}\label{class_enemy_movement_a951521d2c05c55660a6786605d12d36b} 
+void {\bfseries Get\+XPosition} ()
+\begin{DoxyCompactList}\small\item\em get the left and right position to move to \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_movement_ac06efe93b7b427576ab47052ddee1b12}\label{class_enemy_movement_ac06efe93b7b427576ab47052ddee1b12} 
+float {\bfseries wiggle\+Distance} = 0.\+2f
+\item 
+\Hypertarget{class_enemy_movement_a5125fed15004486e33bfd61fc898ab1b}\label{class_enemy_movement_a5125fed15004486e33bfd61fc898ab1b} 
+float {\bfseries wiggle\+Frequency} = 5.\+0f
+\item 
+\Hypertarget{class_enemy_movement_ae37b223a1f1defb5251038a35481625e}\label{class_enemy_movement_ae37b223a1f1defb5251038a35481625e} 
+Vector3 {\bfseries target\+Position} = Vector3.\+zero
+\item 
+\Hypertarget{class_enemy_movement_a4047f0db01ce15bea581aa8c258f2f19}\label{class_enemy_movement_a4047f0db01ce15bea581aa8c258f2f19} 
+Game\+Object {\bfseries enemy\+Mesh}
+\item 
+\Hypertarget{class_enemy_movement_acac24e8e1dd079e797feac8ced20838f}\label{class_enemy_movement_acac24e8e1dd079e797feac8ced20838f} 
+float {\bfseries wiggle\+Journey} = 0.\+0f
+\item 
+\Hypertarget{class_enemy_movement_a23789800ca80d5112bf991ae2441aa7f}\label{class_enemy_movement_a23789800ca80d5112bf991ae2441aa7f} 
+Vector3 {\bfseries wiggle\+Start\+Position}
+\item 
+\Hypertarget{class_enemy_movement_a62d447f60b164a584dd7556c9b34bc42}\label{class_enemy_movement_a62d447f60b164a584dd7556c9b34bc42} 
+float {\bfseries movement\+Speed} = 0.\+4f
+\item 
+\Hypertarget{class_enemy_movement_ab7babdd2cb16b6e7014b62357ba8522f}\label{class_enemy_movement_ab7babdd2cb16b6e7014b62357ba8522f} 
+float {\bfseries default\+Movement\+Speed} = 0.\+4f
+\item 
+\Hypertarget{class_enemy_movement_a20a00ff6ddd06cd4824030e70e0dd1d0}\label{class_enemy_movement_a20a00ff6ddd06cd4824030e70e0dd1d0} 
+float {\bfseries left\+Edge} = -\/4
+\item 
+\Hypertarget{class_enemy_movement_afd2e812f8190228994092a5e247becad}\label{class_enemy_movement_afd2e812f8190228994092a5e247becad} 
+float {\bfseries right\+Edge} = 4
+\item 
+\Hypertarget{class_enemy_movement_a44ab77229e5366f80dd69b64dca01a62}\label{class_enemy_movement_a44ab77229e5366f80dd69b64dca01a62} 
+float {\bfseries targetX}
+\item 
+\Hypertarget{class_enemy_movement_ab088136e9fd1d292beb307f811c00eb5}\label{class_enemy_movement_ab088136e9fd1d292beb307f811c00eb5} 
+float {\bfseries startingX}
+\item 
+\Hypertarget{class_enemy_movement_aa22ac1dcd0395fbebeaf02d026d15e5c}\label{class_enemy_movement_aa22ac1dcd0395fbebeaf02d026d15e5c} 
+float {\bfseries movement\+Lerp\+Journey} = 0.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the movement and wiggling of the enemy objects. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_movement_a79ee4e8d44175829774c97110af572c3}\label{class_enemy_movement_a79ee4e8d44175829774c97110af572c3} 
+\index{EnemyMovement@{EnemyMovement}!SetEdges@{SetEdges}}
+\index{SetEdges@{SetEdges}!EnemyMovement@{EnemyMovement}}
+\doxysubsubsection{\texorpdfstring{SetEdges()}{SetEdges()}}
+{\footnotesize\ttfamily void Enemy\+Movement.\+Set\+Edges (\begin{DoxyParamCaption}\item[{float}]{leftX,  }\item[{float}]{rightX }\end{DoxyParamCaption})}
+
+
+
+set the left and right edges of the screen this enemy will move between 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leftX} & x value this enemy will move toward\\
+\hline
+{\em rightX} & second x value this enemy will move towards\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_movement_a57947518d50ca60ff1363c0a754e5998}\label{class_enemy_movement_a57947518d50ca60ff1363c0a754e5998} 
+\index{EnemyMovement@{EnemyMovement}!SetMovementSpeed@{SetMovementSpeed}}
+\index{SetMovementSpeed@{SetMovementSpeed}!EnemyMovement@{EnemyMovement}}
+\doxysubsubsection{\texorpdfstring{SetMovementSpeed()}{SetMovementSpeed()}}
+{\footnotesize\ttfamily void Enemy\+Movement.\+Set\+Movement\+Speed (\begin{DoxyParamCaption}\item[{float}]{new\+Speed }\end{DoxyParamCaption})}
+
+
+
+set the movement speed to the input speed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Speed} & float of the new speed to set this enemy to\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_movement_aab4b8e8156454d8ea293e38eb5fce351}\label{class_enemy_movement_aab4b8e8156454d8ea293e38eb5fce351} 
+\index{EnemyMovement@{EnemyMovement}!Spawn@{Spawn}}
+\index{Spawn@{Spawn}!EnemyMovement@{EnemyMovement}}
+\doxysubsubsection{\texorpdfstring{Spawn()}{Spawn()}}
+{\footnotesize\ttfamily void Enemy\+Movement.\+Spawn (\begin{DoxyParamCaption}\item[{Vector3}]{spawn\+Position }\end{DoxyParamCaption})}
+
+
+
+move this enemy to the spawn location then re\+Activate it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spawn\+Position} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Enemy\+Scripts/Enemy\+Movement.\+cs\end{DoxyCompactItemize}
