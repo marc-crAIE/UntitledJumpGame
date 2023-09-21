@@ -223,7 +223,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 156.1
+  m_fontSize: 140.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 185
+  m_fontSize: 164.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -835,7 +835,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 156.1
+  m_fontSize: 140.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1838,24 +1838,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1931319780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931319778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1a1a1f9a24cd1409e8e1c37c656ef5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platform: {fileID: 1654830712093821268, guid: 926f6f5d97c88754188d87fa21104123, type: 3}
-  spawnChance: 0.2
-  maxPlatformSkips: 3
-  spawnPlatformStartHeight: 8
-  spaceAfterSpawnPlatform: 3
-  basicPlatformChance: 0.85
-  movingPlatformChance: 0.1
-  breakablePlatformChance: 0.05
-  scoreText: {fileID: 314527608}
