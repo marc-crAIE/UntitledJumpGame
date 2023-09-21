@@ -19,10 +19,9 @@ public class JumpController : MonoBehaviour
         vecGravity = new Vector3(0, -Physics.gravity.y, 0f);
         rb = GetComponent<Rigidbody>();
         _transform = transform;
-        Application.targetFrameRate = 60;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var velocity = vecGravity * (fallMultiplier * Time.deltaTime);
         
