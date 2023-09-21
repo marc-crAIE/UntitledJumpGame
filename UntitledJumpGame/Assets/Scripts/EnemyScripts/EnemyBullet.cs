@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Bullet class used to update this bullet in game, with the possibility to set a new position and target when spawning
+/// </summary>
 public class EnemyBullet : MonoBehaviour
 {
     float speed = 0;

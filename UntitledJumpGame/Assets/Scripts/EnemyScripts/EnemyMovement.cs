@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Manages the movement and wiggling of the enemy objects
+/// </summary>
 public class EnemyMovement : MonoBehaviour
 {
     //wobble is used to add character to enemies, increases how much they wobble/jitter

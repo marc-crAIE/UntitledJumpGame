@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Holds references to the combat controller and movement controller of the enemy
+/// with functions to access and modify both to reduce/remove the need to use the getComponent function
+/// </summary>
 public class EnemyBaseScript : MonoBehaviour
 {
     //hold the movement and the combat scripts of this enemy

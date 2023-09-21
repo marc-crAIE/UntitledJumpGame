@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Class which will set up the death screen to display the score and highscores of the player 
+/// </summary>
 public class DeathMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
