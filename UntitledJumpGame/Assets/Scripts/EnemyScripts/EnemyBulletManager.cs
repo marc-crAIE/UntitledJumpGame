@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spawns and manages bullets in a pooling system
+/// </summary>
 public class EnemyBulletManager : MonoBehaviour
 {
     //create a universal instance to be accessed by other scripts
@@ -15,7 +18,7 @@ public class EnemyBulletManager : MonoBehaviour
     private LinkedList<EnemyBullet> activeBullets = new LinkedList<EnemyBullet>();
 
     //maximum number of bullets to spawn in
-    public int maxBullets = 10;
+    public const int MAX_BULLETS = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class EnemyBulletManager : MonoBehaviour
             _instance = this;
         }
         //create bullets for pooling
-        for (int i = 0; i < maxBullets; i++)
+        for (int i = 0; i < MAX_BULLETS; i++)
         {
             CreateNewBullet();
         }

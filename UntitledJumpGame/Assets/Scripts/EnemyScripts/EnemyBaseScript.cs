@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Holds references to the combat controller and movement controller of the enemy
+/// with functions to access and modify both to reduce/remove the need to use the getComponent function
+/// </summary>
 public class EnemyBaseScript : MonoBehaviour
 {
     //hold the movement and the combat scripts of this enemy
@@ -35,7 +39,7 @@ public class EnemyBaseScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //check fi this enemy has moved below the edge of the screen
+        //check if this enemy has moved below the edge of the screen
         //normally times by 0.5 but it will disappear when half the enemy is off the screen so giving another 0.05 vertical screen space to ensure it is off the screen first
         if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.6)
         {

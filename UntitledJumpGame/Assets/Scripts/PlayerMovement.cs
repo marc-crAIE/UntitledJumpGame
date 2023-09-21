@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     #region Serialized Fields
         [SerializeField] private float moveSpeed = 5.0f;
         [SerializeField] private float tiltMoveSpeed = 10.0f;
+
+        [SerializeField] private DeathMenu deathScreen;
     #endregion SerializeFields
     #region Variables
         Rigidbody rb;
@@ -28,6 +30,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Tilt();
+
+        //used the script from enemy manager as it will sill provide the correct information
+        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.6)
+        {
+            //set this gameObject to false
+            this.transform.parent.gameObject.SetActive(false);
+            ScoreManager._instance.CheckScore();
+            deathScreen.InitialiseMenu();
+        }
     }
 
     private void FixedUpdate()

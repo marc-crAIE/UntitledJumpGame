@@ -16,12 +16,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7726016946745775634, guid: b24d0b15f81989d4991e2c478b633470, type: 3}
+      propertyPath: bulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726016946745775634, guid: b24d0b15f81989d4991e2c478b633470, type: 3}
       propertyPath: maxTimeBetweenShots
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7726016946745775634, guid: b24d0b15f81989d4991e2c478b633470, type: 3}
       propertyPath: minTimeBetweenShots
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7726016947594789202, guid: b24d0b15f81989d4991e2c478b633470, type: 3}
       propertyPath: wiggleDistance

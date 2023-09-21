@@ -21,7 +21,7 @@ public class JumpController : MonoBehaviour
         _transform = transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var velocity = vecGravity * (fallMultiplier * Time.deltaTime);
         
@@ -31,9 +31,11 @@ public class JumpController : MonoBehaviour
         }
         if (this.rb.position.y >= -transform.localScale.y)
         {
-            var position = this.transform.position;
-            platformMover.MovePlatforms(rb.velocity.y);
-            this.rb.position = new Vector3(rb.position.x, -transform.localScale.y, rb.position.z);
+            if (platformMover)
+            {
+                platformMover.MovePlatforms(rb.velocity.y);
+                this.rb.position = new Vector3(rb.position.x, -transform.localScale.y, rb.position.z);
+            }
         }
     }
     

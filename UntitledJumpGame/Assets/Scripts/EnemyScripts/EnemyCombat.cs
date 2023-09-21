@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy Combat controls the enemies combat abilities and information
+/// </summary>
 public class EnemyCombat : MonoBehaviour
 {
     //health and bullet speed
