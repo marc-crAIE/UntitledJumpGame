@@ -129,7 +129,8 @@ public class EnemyManager : MonoBehaviour
         Vector3 position = new Vector3(GetRandomXInScreen(), gameHeight, 0);
 
         //Select a random spawn type for an enemy
-        int selection = Random.Range(0, 4);
+        int selection = Random.Range(0, 3);
+        //only to range 3 to remove double tank spawn
         switch(selection){
             //blank case 0 to increase default enemy spawn rate
             case 0:
