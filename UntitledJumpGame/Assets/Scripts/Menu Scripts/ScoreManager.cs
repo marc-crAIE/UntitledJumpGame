@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class ScoreManager : MonoBehaviour
     //MainMenu display variables
     [SerializeField] private TextMeshProUGUI highScore;
     private const string hiScore = "HighScore";
+
+
+    //InGameScoring
+    private float currentScore = 0;
+    [SerializeField] private TextMeshProUGUI updatingScore;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +39,35 @@ public class ScoreManager : MonoBehaviour
     /// checks the new score, and updates the highscore if it has been beaten.
     /// </summary>
     /// <param name="score">New Score</param>
-    public void NewScore(int score)
+    public void CheckScore()
     {
-        if (score > PlayerPrefs.GetInt(hiScore))
+        if (currentScore > PlayerPrefs.GetInt(hiScore))
         {
-            PlayerPrefs.SetInt(hiScore, score);
+            PlayerPrefs.SetInt(hiScore, (int)currentScore);
         }
+    }
+
+    /// <summary>
+    /// Returns the current saved highScore
+    /// </summary>
+    /// <returns>int of the current high score</returns>
+    public int GetHighScore()
+    {
+        return PlayerPrefs.GetInt(hiScore);
+    }
+
+    /// <summary>
+    /// Adds onto the current score
+    /// </summary>
+    /// <param name="scoreToAdd">amount to add to the score</param>
+    public void AddScore(float scoreToAdd)
+    {
+        currentScore += scoreToAdd;
+        updatingScore.SetText("" + (int)currentScore);
+    }
+
+    public int GetCurrentScore()
+    {
+        return (int)currentScore;
     }
 }
