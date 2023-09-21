@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Manages all alive and dead Enemies in a pooling system
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager _instance;

@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
+/// <summary>
+/// The score manager holds, and updates the players current and high scores
+/// </summary>
 public class ScoreManager : MonoBehaviour
 {
     //universal reference

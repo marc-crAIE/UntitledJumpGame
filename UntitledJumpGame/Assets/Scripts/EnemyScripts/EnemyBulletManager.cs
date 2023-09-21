@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spawns and manages bullets in a pooling system
+/// </summary>
 public class EnemyBulletManager : MonoBehaviour
 {
     //create a universal instance to be accessed by other scripts

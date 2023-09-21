@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Scene loader contains functions to load specific scenes via an integer or string, as well as an option to quit the game
+/// </summary>
 public class SceneLoader : MonoBehaviour
 {
     /// <summary>
