@@ -66,6 +66,10 @@ public class ScoreManager : MonoBehaviour
         updatingScore.SetText("" + (int)currentScore);
     }
 
+    /// <summary>
+    /// Returns the current score the player has
+    /// </summary>
+    /// <returns>integer of the players current score</returns>
     public int GetCurrentScore()
     {
         return (int)currentScore;
