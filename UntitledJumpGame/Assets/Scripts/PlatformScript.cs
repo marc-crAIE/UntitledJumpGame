@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// The script for controlling the behaviour of platforms
+/// </summary>
 public class PlatformScript : MonoBehaviour
 {
     #region Variables
@@ -10,7 +13,7 @@ public class PlatformScript : MonoBehaviour
         Moving,
         Breakable
     }
-
+    
     public PlatformType type;
     
     public float areaHeightOffset = 1.0f;
@@ -31,9 +34,12 @@ public class PlatformScript : MonoBehaviour
     
     #region Unity Events
     
-    // Start is called before the first frame update
+    /// <summary>
+    /// The initial function called when the platform is instantiated
+    /// </summary>
     void Start()
     {
+        // Get the main scene camera
         _camera = Camera.main;
         
         // Get the width and height of the view area
@@ -41,20 +47,31 @@ public class PlatformScript : MonoBehaviour
         Vector3 viewBottomLeft = _camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
         Vector3 viewTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
         
+        // Get the area width and height in screen space units
         _areaWidth = (viewTopRight.x - viewBottomLeft.x) + (this.transform.localScale.x * 2.0f);
         _areaHeight = viewTopRight.y - viewBottomLeft.y + areaHeightOffset;
-
+        
+        // Make sure that platform color is set correctly based on its type
         SetColorFromType();
-
+        
+        // Pick a random move direction either left or right (for moving platforms)
         moveDir = Random.Range(1, 10) % 2 == 0 ? 1 : -1;
     }
 
+    /// <summary>
+    /// Sets the platforms type and changes its color
+    /// </summary>
+    /// <param name="newType">The new platform type</param>
     public void SetType(PlatformType newType)
     {
+        // Set the type and ensure it is the right color
         type = newType;
         SetColorFromType();
     }
 
+    /// <summary>
+    /// Set the color of the platform based on its type
+    /// </summary>
     private void SetColorFromType()
     {
         switch (type)
@@ -71,27 +88,38 @@ public class PlatformScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update the platform once per frame
+    /// </summary>
     void Update()
     {
         // If the y position is below the view area, deactivate the platform
         if (transform.position.y < -(_areaHeight / 2.0f))
             gameObject.SetActive(false);
-
+        
+        // If the platform type is a moving platform, handle movement
         if (type == PlatformType.Moving)
         {
+            // Get the platform size and half of the areas width
             float platformSize = transform.localScale.x;
             float areaHalfWidth = (_areaWidth / 2.0f) - platformSize;
+            
+            // If the platform is too far to the left or to the right, flip the direction
             if ((transform.position.x - platformSize <= -areaHalfWidth && moveDir == -1) || 
                 (transform.position.x + platformSize >= areaHalfWidth && moveDir == 1))
                 moveDir *= -1;
             
+            // Move the platform based on the direction and movement speed
             transform.position += Vector3.right * (moveDir * moveSpeed * Time.deltaTime); 
         }
     }
 
+    /// <summary>
+    /// Called when the platform is bounced on by the player
+    /// </summary>
     public void OnBouncedFrom()
     {
+        // If the platform is breakable, break it
         if (type == PlatformType.Breakable)
             gameObject.SetActive(false);
     }

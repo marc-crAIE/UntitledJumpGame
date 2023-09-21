@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// The Wall Spawner just spawns the walls at te right position given the size of the screen
+/// </summary>
 public class WallSpawnerScript : MonoBehaviour
 {
     #region Variables
@@ -12,9 +15,12 @@ public class WallSpawnerScript : MonoBehaviour
 
     #region Unity Events
     
-    // Start is called before the first frame update
+    /// <summary>
+    /// The initial function called when the wall spawner is instantiated
+    /// </summary>
     void Start()
     {
+        // Get the main camera
         _camera = Camera.main;
         
         // Get the width and height of the view area
@@ -37,6 +43,7 @@ public class WallSpawnerScript : MonoBehaviour
         var wallLocalScale = wallTransform.localScale;
         var wallScale = new Vector3(wallLocalScale.x, areaHeight * 1.5f, wallLocalScale.z);
         
+        // Set the left and right wall positions
         wallRight.transform.localScale = wallScale;
         wallLeft.transform.localScale = wallScale;
     }
