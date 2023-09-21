@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Enemy Combat controls the enemies combat abilities and information
+/// </summary>
 public class EnemyCombat : MonoBehaviour
 {
     //health and bullet speed
     [SerializeField] private int health = 1;
     private int defaultHealth = 1;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private AudioSource soundMaker;
 
 
     //target to shoot at
@@ -15,7 +19,7 @@ public class EnemyCombat : MonoBehaviour
 
 
     [SerializeField] private GameObject parent;
-    private EnemyBaseScript parentScript;
+    [SerializeField] private EnemyBaseScript parentScript;
 
 
     //used to randomise a time between shooting from the enemy so it is not always the same
@@ -28,6 +32,7 @@ public class EnemyCombat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StopAllCoroutines();
         //start waiting
         waitingCoroutine = StartCoroutine(TimeBetweenShots());
         defaultHealth = health;
@@ -51,6 +56,7 @@ public class EnemyCombat : MonoBehaviour
         //spawn in a bullet from the pool
         EnemyBulletManager._instance.SpawnBullet(this.transform, target.transform, bulletSpeed);
 
+        soundMaker.PlayOneShot(parentScript.GetShootingSound());
         //start a new waiting coroutine
         waitingCoroutine = StartCoroutine(TimeBetweenShots());
     }
@@ -96,8 +102,7 @@ public class EnemyCombat : MonoBehaviour
         int timeToWait = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
 
         //wait for the amount of time
-        yield return new WaitForSeconds(timeToWait);
-
+        yield return new WaitForSecondsRealtime(timeToWait);
         //shoot at the target
         ShootAtTarget();
     }

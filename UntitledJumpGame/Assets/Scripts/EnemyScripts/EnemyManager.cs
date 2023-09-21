@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
+/// <summary>
+/// Manages all alive and dead Enemies in a pooling system
+/// </summary>
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager _instance;
@@ -21,7 +23,7 @@ public class EnemyManager : MonoBehaviour
 
 
     //number of each enemy to spawn
-    [SerializeField] private int numOfEachPooledEnemies = 4;
+    [SerializeField] private const int POOLEDENEMYCOUNT = 4;
     //target to shoot at (should be set to the player)
     [SerializeField] GameObject target;
 
@@ -61,7 +63,7 @@ public class EnemyManager : MonoBehaviour
 
 
         //instantiate enemies
-        for (int i = 0; i < numOfEachPooledEnemies; i ++)
+        for (int i = 0; i < POOLEDENEMYCOUNT; i ++)
         {
             EnemyBaseScript basic = Instantiate(basicEnemy, platformSpawner.transform);
             basic.SetTarget(target);
@@ -130,7 +132,8 @@ public class EnemyManager : MonoBehaviour
         Vector3 position = new Vector3(GetRandomXInScreen(), gameHeight, 0);
 
         //Select a random spawn type for an enemy
-        int selection = Random.Range(0, 4);
+        int selection = Random.Range(0, 3);
+        //only to range 3 to remove double tank spawn
         switch(selection){
             //blank case 0 to increase default enemy spawn rate
             case 0:

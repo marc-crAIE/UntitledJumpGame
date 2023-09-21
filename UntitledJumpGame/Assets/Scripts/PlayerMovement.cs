@@ -11,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     #region Serialized Fields
         [SerializeField] private float moveSpeed = 5.0f;
         [SerializeField] private float tiltMoveSpeed = 10.0f;
+
+        [SerializeField] private DeathMenu deathScreen;
     #endregion SerializeFields
     #region Variables
         Rigidbody rb;
         Vector2 inputVector;
         private float directionX;
+        public JumpController jumper;
     #endregion Variables
     
     private void Start()
@@ -27,6 +30,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Move();
         Tilt();
+
+        //used the script from enemy manager as it will sill provide the correct information
+        if (transform.position.y < -EnemyManager._instance.GetGameHeight() * 0.6)
+        {
+            //set this gameObject to false
+            this.transform.parent.gameObject.SetActive(false);
+            ScoreManager._instance.CheckScore();
+            deathScreen.InitialiseMenu();
+        }
     }
 
     private void FixedUpdate()
@@ -38,7 +50,10 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, 0f, 0f);
-        rb.position += movementDelta;
+        if (jumper.alive)
+        {
+            rb.position += movementDelta;
+        }
     }
 
     private void Tilt()
