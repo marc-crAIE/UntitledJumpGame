@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     //MainMenu display variables
     [SerializeField] private TextMeshProUGUI highScore;
-    private const string hiScore = "HighScore";
+    private const string HIS_CORE = "HighScore";
 
 
     //InGameScoring
@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
         //update the main menu to display the highScore
         if (highScore)
         {
-            highScore.SetText(PlayerPrefs.GetInt(hiScore) + "m");
+            highScore.SetText(PlayerPrefs.GetInt(HIS_CORE) + "m");
         }
     }
 
@@ -41,9 +41,9 @@ public class ScoreManager : MonoBehaviour
     /// <param name="score">New Score</param>
     public void CheckScore()
     {
-        if (currentScore > PlayerPrefs.GetInt(hiScore))
+        if (currentScore > PlayerPrefs.GetInt(HIS_CORE))
         {
-            PlayerPrefs.SetInt(hiScore, (int)currentScore);
+            PlayerPrefs.SetInt(HIS_CORE, (int)currentScore);
         }
     }
 
@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
     /// <returns>int of the current high score</returns>
     public int GetHighScore()
     {
-        return PlayerPrefs.GetInt(hiScore);
+        return PlayerPrefs.GetInt(HIS_CORE);
     }
 
     /// <summary>

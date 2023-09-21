@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
 
 
     //number of each enemy to spawn
-    [SerializeField] private int numOfEachPooledEnemies = 4;
+    [SerializeField] private const int POOLEDENEMYCOUNT = 4;
     //target to shoot at (should be set to the player)
     [SerializeField] GameObject target;
 
@@ -60,7 +60,7 @@ public class EnemyManager : MonoBehaviour
 
 
         //instantiate enemies
-        for (int i = 0; i < numOfEachPooledEnemies; i ++)
+        for (int i = 0; i < POOLEDENEMYCOUNT; i ++)
         {
             EnemyBaseScript basic = Instantiate(basicEnemy, platformSpawner.transform);
             basic.SetTarget(target);
