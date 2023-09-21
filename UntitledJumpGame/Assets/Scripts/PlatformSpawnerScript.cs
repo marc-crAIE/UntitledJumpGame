@@ -15,6 +15,10 @@ public class PlatformSpawnerScript : MonoBehaviour
     public int maxPlatformSkips;
     public int spawnPlatformStartHeight = 8;
     public int spaceAfterSpawnPlatform = 6;
+
+    public float basicPlatformChance = 0.85f;
+    public float movingPlatformChance = 0.1f;
+    public float breakablePlatformChance = 0.05f;
         
     #endregion
 
@@ -51,6 +55,9 @@ public class PlatformSpawnerScript : MonoBehaviour
         Vector3 viewTopRight = _camera.ViewportToWorldPoint(new Vector3(1, 1, distance));
         
         var platformScale = platform.transform.localScale;
+
+        viewBottomLeft -= platformScale;
+        viewTopRight -= platformScale;
         
         _areaWidth = (viewTopRight.x - viewBottomLeft.x) - platformScale.x;
         _areaHeight = viewTopRight.y - viewBottomLeft.y;
@@ -123,6 +130,16 @@ public class PlatformSpawnerScript : MonoBehaviour
             // Set the transform position of the platform and re-activate it
             _platforms[_currentPlatformIdx].transform.position = spawnPos;
             _platforms[_currentPlatformIdx].SetActive(true);
+            
+            // Set the type (does not effect the spawn platform)
+            // TODO: This code is disgusting and very temporary. Fix it up later
+            float typeChance = Random.Range(0.0f, 1.0f);
+            if (typeChance <= basicPlatformChance)
+                _platforms[_currentPlatformIdx].GetComponent<PlatformScript>().SetType(PlatformScript.PlatformType.Basic);
+            else if (typeChance <= basicPlatformChance + movingPlatformChance)
+                _platforms[_currentPlatformIdx].GetComponent<PlatformScript>().SetType(PlatformScript.PlatformType.Moving);
+            else
+                _platforms[_currentPlatformIdx].GetComponent<PlatformScript>().SetType(PlatformScript.PlatformType.Breakable);
 
             if (spawn)
                 _platforms[_currentPlatformIdx].tag = "Spawn Platform";

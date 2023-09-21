@@ -43,6 +43,11 @@ public class JumpController : MonoBehaviour
     {
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Spawn Platform")) && rb.velocity.y <= 0 && alive)
         {
+            // Get the platform's script and call its bounced from event
+            var platformScript = collision.gameObject.GetComponent<PlatformScript>();
+            if (platformScript)
+                platformScript.OnBouncedFrom();
+                
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);            
         }
         else if (collision.gameObject.CompareTag("Enemy"))

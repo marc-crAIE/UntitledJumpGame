@@ -1416,6 +1416,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2998063424540238691, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
       propertyPath: fallMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998063424540238695, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2998063424540238695, guid: e0bcf24a39aaa7b4985a33413c9ccad2, type: 3}
+      propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1830,3 +1838,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1931319780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931319778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1a1a1f9a24cd1409e8e1c37c656ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 1654830712093821268, guid: 926f6f5d97c88754188d87fa21104123, type: 3}
+  spawnChance: 0.2
+  maxPlatformSkips: 3
+  spawnPlatformStartHeight: 8
+  spaceAfterSpawnPlatform: 3
+  basicPlatformChance: 0.85
+  movingPlatformChance: 0.1
+  breakablePlatformChance: 0.05
+  scoreText: {fileID: 314527608}
