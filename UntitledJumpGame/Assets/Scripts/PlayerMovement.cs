@@ -9,7 +9,14 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     #region Serialized Fields
+        /// <summary>
+        /// Player movement speed
+        /// </summary>
         [SerializeField] private float moveSpeed = 5.0f;
+        
+        /// <summary>
+        /// Movement speed for android gyro tilting
+        /// </summary>
         [SerializeField] private float tiltMoveSpeed = 10.0f;
 
         [SerializeField] private DeathMenu deathScreen;
@@ -47,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region Move
+    /// <summary>
+    /// Calculates movement for player character as long as the character is alive.
+    /// </summary>
     private void Move()
     {
         Vector3 movementDelta = new Vector3(inputVector.x * moveSpeed * Time.deltaTime, 0f, 0f);
@@ -56,6 +66,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calculates movement when tilting a device
+    /// </summary>
     private void Tilt()
     {
         directionX = Input.acceleration.x * tiltMoveSpeed;

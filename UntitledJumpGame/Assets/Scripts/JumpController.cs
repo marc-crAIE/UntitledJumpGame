@@ -39,6 +39,10 @@ public class JumpController : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Checking Player's foot collider vs any collider with the Platform tag.
+    /// If true, the player will jump.
+    /// </summary>
     void OnTriggerEnter(Collider collision)
     {
         if ((collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Spawn Platform")) && rb.velocity.y <= 0 && alive)
