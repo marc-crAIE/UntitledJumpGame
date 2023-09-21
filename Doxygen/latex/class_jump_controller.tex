@@ -1,0 +1,52 @@
+\doxysection{Jump\+Controller Class Reference}
+\hypertarget{class_jump_controller}{}\label{class_jump_controller}\index{JumpController@{JumpController}}
+Inheritance diagram for Jump\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_jump_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_jump_controller_a8e9402b922e51168f9f258e98676c2c9}\label{class_jump_controller_a8e9402b922e51168f9f258e98676c2c9} 
+bool {\bfseries alive} = true
+\item 
+\Hypertarget{class_jump_controller_ae0e772857264b11dbdcaed702fb997fb}\label{class_jump_controller_ae0e772857264b11dbdcaed702fb997fb} 
+\mbox{\hyperlink{class_platform_spawner_script}{Platform\+Spawner\+Script}} {\bfseries platform\+Mover}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_jump_controller_a2e41cdd8c79c6213e023cc7a22cb618f}\label{class_jump_controller_a2e41cdd8c79c6213e023cc7a22cb618f} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_jump_controller_a3417af01518606e74e18ed321d927196}\label{class_jump_controller_a3417af01518606e74e18ed321d927196} 
+void {\bfseries Fixed\+Update} ()
+\item 
+\Hypertarget{class_jump_controller_ad254e7d801ad8c152072dd45aba061a9}\label{class_jump_controller_ad254e7d801ad8c152072dd45aba061a9} 
+void {\bfseries On\+Trigger\+Enter} (Collider collision)
+\begin{DoxyCompactList}\small\item\em Checking Player\textquotesingle{}s foot collider vs any collider with the Platform tag. If true, the player will jump. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_jump_controller_abc9492d570aed8a999b4307ea3fa705e}\label{class_jump_controller_abc9492d570aed8a999b4307ea3fa705e} 
+Transform {\bfseries \+\_\+transform}
+\item 
+\Hypertarget{class_jump_controller_aba7d238a7a52691d200d6ebf3b8aeecc}\label{class_jump_controller_aba7d238a7a52691d200d6ebf3b8aeecc} 
+Rigidbody {\bfseries rb}
+\item 
+\Hypertarget{class_jump_controller_a1f13af1264c6587e16f61fae1edc5ea2}\label{class_jump_controller_a1f13af1264c6587e16f61fae1edc5ea2} 
+float {\bfseries jump\+Force} = 10.\+0f
+\item 
+\Hypertarget{class_jump_controller_a18dd67c48acfea8aeac8019733171651}\label{class_jump_controller_a18dd67c48acfea8aeac8019733171651} 
+float {\bfseries fall\+Multiplier}
+\item 
+\Hypertarget{class_jump_controller_a9f4735527945143e77ec64184691244d}\label{class_jump_controller_a9f4735527945143e77ec64184691244d} 
+Vector3 {\bfseries vec\+Gravity}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/Jump\+Controller.\+cs\end{DoxyCompactItemize}

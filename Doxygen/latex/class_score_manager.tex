@@ -1,0 +1,121 @@
+\doxysection{Score\+Manager Class Reference}
+\hypertarget{class_score_manager}{}\label{class_score_manager}\index{ScoreManager@{ScoreManager}}
+
+
+The score manager holds, and updates the players current and high scores.  
+
+
+Inheritance diagram for Score\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_score_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_score_manager_a1a2db5dfbd02d13ae8df7de907dac3a2}{Check\+Score}} ()
+\begin{DoxyCompactList}\small\item\em checks the new score, and updates the highscore if it has been beaten. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_score_manager_afe203c20f4dce1c425befdaeeee9aec5}{Get\+High\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current saved high\+Score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_manager_ae5ba7da8fadb51493ef9cb35b04f1589}{Add\+Score}} (float score\+To\+Add)
+\begin{DoxyCompactList}\small\item\em Adds onto the current score. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_score_manager_a29496a8a866d87201c283a3ebd744156}{Get\+Current\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current score the player has. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_score_manager_a7392652708b151d8a00133b530d07ddc}\label{class_score_manager_a7392652708b151d8a00133b530d07ddc} 
+static \mbox{\hyperlink{class_score_manager}{Score\+Manager}} {\bfseries \+\_\+instance}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_score_manager_a2d8e7dd8928c4fa7feb1a020971b69ac}\label{class_score_manager_a2d8e7dd8928c4fa7feb1a020971b69ac} 
+void {\bfseries Start} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_score_manager_ab70085085f0dfee4b0a2b18a1112b0ec}\label{class_score_manager_ab70085085f0dfee4b0a2b18a1112b0ec} 
+Text\+Mesh\+Pro\+UGUI {\bfseries high\+Score}
+\item 
+\Hypertarget{class_score_manager_a31542eba46ba22cf8f01ec6d39f78bde}\label{class_score_manager_a31542eba46ba22cf8f01ec6d39f78bde} 
+float {\bfseries current\+Score} = 0
+\item 
+\Hypertarget{class_score_manager_a6a37ab1b21ea41ba8fd81c2704fedb34}\label{class_score_manager_a6a37ab1b21ea41ba8fd81c2704fedb34} 
+Text\+Mesh\+Pro\+UGUI {\bfseries updating\+Score}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_score_manager_a92b7e68654f7c4607f31aaf21f4e2e2f}\label{class_score_manager_a92b7e68654f7c4607f31aaf21f4e2e2f} 
+const string {\bfseries HIS\+\_\+\+CORE} = "{}High\+Score"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The score manager holds, and updates the players current and high scores. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_score_manager_ae5ba7da8fadb51493ef9cb35b04f1589}\label{class_score_manager_ae5ba7da8fadb51493ef9cb35b04f1589} 
+\index{ScoreManager@{ScoreManager}!AddScore@{AddScore}}
+\index{AddScore@{AddScore}!ScoreManager@{ScoreManager}}
+\doxysubsubsection{\texorpdfstring{AddScore()}{AddScore()}}
+{\footnotesize\ttfamily void Score\+Manager.\+Add\+Score (\begin{DoxyParamCaption}\item[{float}]{score\+To\+Add }\end{DoxyParamCaption})}
+
+
+
+Adds onto the current score. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em score\+To\+Add} & amount to add to the score\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_score_manager_a1a2db5dfbd02d13ae8df7de907dac3a2}\label{class_score_manager_a1a2db5dfbd02d13ae8df7de907dac3a2} 
+\index{ScoreManager@{ScoreManager}!CheckScore@{CheckScore}}
+\index{CheckScore@{CheckScore}!ScoreManager@{ScoreManager}}
+\doxysubsubsection{\texorpdfstring{CheckScore()}{CheckScore()}}
+{\footnotesize\ttfamily void Score\+Manager.\+Check\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks the new score, and updates the highscore if it has been beaten. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em score} & New Score\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_score_manager_a29496a8a866d87201c283a3ebd744156}\label{class_score_manager_a29496a8a866d87201c283a3ebd744156} 
+\index{ScoreManager@{ScoreManager}!GetCurrentScore@{GetCurrentScore}}
+\index{GetCurrentScore@{GetCurrentScore}!ScoreManager@{ScoreManager}}
+\doxysubsubsection{\texorpdfstring{GetCurrentScore()}{GetCurrentScore()}}
+{\footnotesize\ttfamily int Score\+Manager.\+Get\+Current\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current score the player has. 
+
+\begin{DoxyReturn}{Returns}
+integer of the players current score
+\end{DoxyReturn}
+\Hypertarget{class_score_manager_afe203c20f4dce1c425befdaeeee9aec5}\label{class_score_manager_afe203c20f4dce1c425befdaeeee9aec5} 
+\index{ScoreManager@{ScoreManager}!GetHighScore@{GetHighScore}}
+\index{GetHighScore@{GetHighScore}!ScoreManager@{ScoreManager}}
+\doxysubsubsection{\texorpdfstring{GetHighScore()}{GetHighScore()}}
+{\footnotesize\ttfamily int Score\+Manager.\+Get\+High\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current saved high\+Score. 
+
+\begin{DoxyReturn}{Returns}
+int of the current high score
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Menu Scripts/Score\+Manager.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\doxysection{Enemy\+Base\+Script Class Reference}
+\hypertarget{class_enemy_base_script}{}\label{class_enemy_base_script}\index{EnemyBaseScript@{EnemyBaseScript}}
+
+
+Holds references to the combat controller and movement controller of the enemy with functions to access and modify both to reduce/remove the need to use the get\+Component function.  
+
+
+Inheritance diagram for Enemy\+Base\+Script\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_base_script}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_base_script_a06a60dbab829647707a4523f35d2b3e9}{Spawn}} (Vector3 spawn\+Position)
+\begin{DoxyCompactList}\small\item\em Spawns this enemy at the input vector 3 position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_base_script_ae8b6708ed50b820b8ba9abbf5218a404}{Set\+Movement\+Edges}} (float left\+Edge, float right\+Edge)
+\begin{DoxyCompactList}\small\item\em Takes 2 floats and sets them to the x values this enemy will move between. \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_base_script_a5976b97c65d4eb83b6bd657bd58f619c}\label{class_enemy_base_script_a5976b97c65d4eb83b6bd657bd58f619c} 
+void {\bfseries Set\+Movement\+Speed} ()
+\begin{DoxyCompactList}\small\item\em Sets this enemies movement speed to the defualt movement speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_base_script_a52f2de6a0336db9148d64534b8632dea}{Set\+Movement\+Speed}} (float speed)
+\begin{DoxyCompactList}\small\item\em Sets this enemies movement speed to the input speed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_base_script_aceef25ae0b40c4c0f86d730b33e87f34}{Set\+Target}} (Game\+Object target)
+\begin{DoxyCompactList}\small\item\em updates the target this enemy will shoot at \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_base_script_a5c2c20837d8ffa30ba155a0cb4e3ec35}\label{class_enemy_base_script_a5c2c20837d8ffa30ba155a0cb4e3ec35} 
+void {\bfseries Die} ()
+\begin{DoxyCompactList}\small\item\em deactivates this enemy \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_base_script_a0a57c825b961e8bc9d56d85f7f6afcb6}\label{class_enemy_base_script_a0a57c825b961e8bc9d56d85f7f6afcb6} 
+Audio\+Clip {\bfseries Get\+Shooting\+Sound} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_base_script_a781ae41152924f767b9ec828bf9c1d6a}\label{class_enemy_base_script_a781ae41152924f767b9ec828bf9c1d6a} 
+Audio\+Clip {\bfseries bop1}
+\item 
+\Hypertarget{class_enemy_base_script_a57a73b9e92fbfba501d8c6143117c2e1}\label{class_enemy_base_script_a57a73b9e92fbfba501d8c6143117c2e1} 
+Audio\+Clip {\bfseries bop2}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_base_script_ab753f1593a93d8cd6b82515e0fd5dc0b}\label{class_enemy_base_script_ab753f1593a93d8cd6b82515e0fd5dc0b} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_enemy_base_script_afcc7045d88382e545365eac7ee0d4f34}\label{class_enemy_base_script_afcc7045d88382e545365eac7ee0d4f34} 
+void {\bfseries Fixed\+Update} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_base_script_a9893f553ce2135a3d9ea0e30af52e3bd}\label{class_enemy_base_script_a9893f553ce2135a3d9ea0e30af52e3bd} 
+\mbox{\hyperlink{class_enemy_combat}{Enemy\+Combat}} {\bfseries combat\+Controller}
+\item 
+\Hypertarget{class_enemy_base_script_ade213d51545a84f9a69fae190309e100}\label{class_enemy_base_script_ade213d51545a84f9a69fae190309e100} 
+\mbox{\hyperlink{class_enemy_movement}{Enemy\+Movement}} {\bfseries movement\+Controller}
+\item 
+\Hypertarget{class_enemy_base_script_a547b7542830c764c66b864eb487fbb93}\label{class_enemy_base_script_a547b7542830c764c66b864eb487fbb93} 
+Particle\+System {\bfseries particles}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds references to the combat controller and movement controller of the enemy with functions to access and modify both to reduce/remove the need to use the get\+Component function. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_base_script_ae8b6708ed50b820b8ba9abbf5218a404}\label{class_enemy_base_script_ae8b6708ed50b820b8ba9abbf5218a404} 
+\index{EnemyBaseScript@{EnemyBaseScript}!SetMovementEdges@{SetMovementEdges}}
+\index{SetMovementEdges@{SetMovementEdges}!EnemyBaseScript@{EnemyBaseScript}}
+\doxysubsubsection{\texorpdfstring{SetMovementEdges()}{SetMovementEdges()}}
+{\footnotesize\ttfamily void Enemy\+Base\+Script.\+Set\+Movement\+Edges (\begin{DoxyParamCaption}\item[{float}]{left\+Edge,  }\item[{float}]{right\+Edge }\end{DoxyParamCaption})}
+
+
+
+Takes 2 floats and sets them to the x values this enemy will move between. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Edge} & left point the enemy will move towards\\
+\hline
+{\em right\+Edge} & right point the enemy will move towards\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_base_script_a52f2de6a0336db9148d64534b8632dea}\label{class_enemy_base_script_a52f2de6a0336db9148d64534b8632dea} 
+\index{EnemyBaseScript@{EnemyBaseScript}!SetMovementSpeed@{SetMovementSpeed}}
+\index{SetMovementSpeed@{SetMovementSpeed}!EnemyBaseScript@{EnemyBaseScript}}
+\doxysubsubsection{\texorpdfstring{SetMovementSpeed()}{SetMovementSpeed()}}
+{\footnotesize\ttfamily void Enemy\+Base\+Script.\+Set\+Movement\+Speed (\begin{DoxyParamCaption}\item[{float}]{speed }\end{DoxyParamCaption})}
+
+
+
+Sets this enemies movement speed to the input speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & float containing the new speed of the enemy\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_base_script_aceef25ae0b40c4c0f86d730b33e87f34}\label{class_enemy_base_script_aceef25ae0b40c4c0f86d730b33e87f34} 
+\index{EnemyBaseScript@{EnemyBaseScript}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!EnemyBaseScript@{EnemyBaseScript}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Enemy\+Base\+Script.\+Set\+Target (\begin{DoxyParamCaption}\item[{Game\+Object}]{target }\end{DoxyParamCaption})}
+
+
+
+updates the target this enemy will shoot at 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Game\+Object of the target to shoot at\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_base_script_a06a60dbab829647707a4523f35d2b3e9}\label{class_enemy_base_script_a06a60dbab829647707a4523f35d2b3e9} 
+\index{EnemyBaseScript@{EnemyBaseScript}!Spawn@{Spawn}}
+\index{Spawn@{Spawn}!EnemyBaseScript@{EnemyBaseScript}}
+\doxysubsubsection{\texorpdfstring{Spawn()}{Spawn()}}
+{\footnotesize\ttfamily void Enemy\+Base\+Script.\+Spawn (\begin{DoxyParamCaption}\item[{Vector3}]{spawn\+Position }\end{DoxyParamCaption})}
+
+
+
+Spawns this enemy at the input vector 3 position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spawn\+Position} & Vector 3 containing the position to spawn this enemy\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Enemy\+Scripts/Enemy\+Base\+Script.\+cs\end{DoxyCompactItemize}

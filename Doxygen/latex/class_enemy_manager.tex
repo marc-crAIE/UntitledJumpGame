@@ -1,0 +1,218 @@
+\doxysection{Enemy\+Manager Class Reference}
+\hypertarget{class_enemy_manager}{}\label{class_enemy_manager}\index{EnemyManager@{EnemyManager}}
+
+
+Manages all alive and dead Enemies in a pooling system.  
+
+
+Inheritance diagram for Enemy\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_enemy_manager_a9e1dd89b92312d0aaf639955b4846548}{Deactivate\+Enemy}} (\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} enemy)
+\begin{DoxyCompactList}\small\item\em checks if the enemy is a basic enemy or a tank enemy and removes them from the respective alive linked list \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_manager_a77f6dabd1f06b949ea39e25887938367}\label{class_enemy_manager_a77f6dabd1f06b949ea39e25887938367} 
+void {\bfseries Spawn\+Selector} ()
+\begin{DoxyCompactList}\small\item\em Selects a spawn type for each enemy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_manager_af4a2d5e7943e1113619f8962c6a91517}{Spawn\+Basic}} (Vector3 pos)
+\begin{DoxyCompactList}\small\item\em spawns a basic enemy at the input position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_manager_a7831df63734fe9d39dc7db4d8355825d}{Spawn\+Tank}} (Vector3 pos)
+\begin{DoxyCompactList}\small\item\em spawns a tank enemy at the input position \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_manager_af8082c987627d75b488990e0ee717bab}\label{class_enemy_manager_af8082c987627d75b488990e0ee717bab} 
+void {\bfseries Spawn\+Double\+Tank} ()
+\begin{DoxyCompactList}\small\item\em Spawn 2 tanks, one in each half of the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_manager_a6df71b3705181066ab6ee7aace857d11}{Side\+Spawner}} (bool left)
+\begin{DoxyCompactList}\small\item\em use a boolean to determine if the tank enemy spawns on the left side(true) or the right side (false) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_enemy_manager_a32ae4376a42bc6eba6719ff2ceef1595}{Get\+Random\+XIn\+Screen}} ()
+\begin{DoxyCompactList}\small\item\em returns a random x value within the screen space \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_enemy_manager_a000a11509c5bdbf084be5c18f46fa4a3}{Get\+Game\+Height}} ()
+\begin{DoxyCompactList}\small\item\em returns the current height of the game screen \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_manager_a3e530451761a46fb1dac17e1b7d8c8ff}\label{class_enemy_manager_a3e530451761a46fb1dac17e1b7d8c8ff} 
+float {\bfseries min\+Move\+Distance} = 5
+\item 
+\Hypertarget{class_enemy_manager_a7d4efa8f58c5c5aa4a8aa044ebc75015}\label{class_enemy_manager_a7d4efa8f58c5c5aa4a8aa044ebc75015} 
+float {\bfseries max\+Move\+Distance} = 30
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_manager_afdbf4100a4b5d1093115219d35c87175}\label{class_enemy_manager_afdbf4100a4b5d1093115219d35c87175} 
+static \mbox{\hyperlink{class_enemy_manager}{Enemy\+Manager}} {\bfseries \+\_\+instance}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_manager_afcf3de6b6a3f197fe343fc43592b46d5}\label{class_enemy_manager_afcf3de6b6a3f197fe343fc43592b46d5} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_enemy_manager_a0087a0fb99ae016b94f3fa9c298f7754}\label{class_enemy_manager_a0087a0fb99ae016b94f3fa9c298f7754} 
+void {\bfseries Fixed\+Update} ()
+\item 
+float \mbox{\hyperlink{class_enemy_manager_a093241bcac2f687c0e66c67213adb828}{Get\+Random\+Spawn\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em gets a random value the platforms must move before an enemy is spawned \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_manager_ab637cf5cbd80d05bef26915d7df69729}\label{class_enemy_manager_ab637cf5cbd80d05bef26915d7df69729} 
+\mbox{\hyperlink{class_platform_spawner_script}{Platform\+Spawner\+Script}} {\bfseries platform\+Spawner}
+\item 
+\Hypertarget{class_enemy_manager_ae3f24c021a8ea1ba173d69be0fdeb15b}\label{class_enemy_manager_ae3f24c021a8ea1ba173d69be0fdeb15b} 
+float {\bfseries spawn\+Enemy\+At} = 0
+\item 
+\Hypertarget{class_enemy_manager_a14c73a0767689392671c3f219b25732d}\label{class_enemy_manager_a14c73a0767689392671c3f219b25732d} 
+\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} {\bfseries basic\+Enemy}
+\item 
+\Hypertarget{class_enemy_manager_a6e500dd2503eb465be400624e874ced7}\label{class_enemy_manager_a6e500dd2503eb465be400624e874ced7} 
+\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} {\bfseries tank\+Enemy}
+\item 
+\Hypertarget{class_enemy_manager_a2416a584e9c0624df80d2d8862ef873d}\label{class_enemy_manager_a2416a584e9c0624df80d2d8862ef873d} 
+Game\+Object {\bfseries target}
+\item 
+\Hypertarget{class_enemy_manager_a9a15c8c3c84d62fc3991e71b8df5fc6f}\label{class_enemy_manager_a9a15c8c3c84d62fc3991e71b8df5fc6f} 
+Linked\+List$<$ \mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} $>$ {\bfseries dead\+Basic\+Enemies} = new Linked\+List$<$\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}}$>$()
+\item 
+\Hypertarget{class_enemy_manager_aa4e75cbdad89b422874a898eaa64bdbe}\label{class_enemy_manager_aa4e75cbdad89b422874a898eaa64bdbe} 
+Linked\+List$<$ \mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} $>$ {\bfseries alive\+Basic\+Enemies} = new Linked\+List$<$\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}}$>$()
+\item 
+\Hypertarget{class_enemy_manager_a2cc15cccb34e04de894ac1da1093085c}\label{class_enemy_manager_a2cc15cccb34e04de894ac1da1093085c} 
+Linked\+List$<$ \mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} $>$ {\bfseries dead\+Tank\+Enemies} = new Linked\+List$<$\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}}$>$()
+\item 
+\Hypertarget{class_enemy_manager_ac51eb2e7b2fc53304ed12daaad88c3bf}\label{class_enemy_manager_ac51eb2e7b2fc53304ed12daaad88c3bf} 
+Linked\+List$<$ \mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} $>$ {\bfseries alive\+Tank\+Enemies} = new Linked\+List$<$\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}}$>$()
+\item 
+\Hypertarget{class_enemy_manager_a4c56008902c2ebd0f0bcd14a7d05e59a}\label{class_enemy_manager_a4c56008902c2ebd0f0bcd14a7d05e59a} 
+Camera {\bfseries \+\_\+camera}
+\item 
+\Hypertarget{class_enemy_manager_a2a0b011d0c85ae04a2352f6a7545e89e}\label{class_enemy_manager_a2a0b011d0c85ae04a2352f6a7545e89e} 
+float {\bfseries game\+Width}
+\item 
+\Hypertarget{class_enemy_manager_a809184f1a9a75daa2e6972a639fd7868}\label{class_enemy_manager_a809184f1a9a75daa2e6972a639fd7868} 
+float {\bfseries game\+Height}
+\item 
+\Hypertarget{class_enemy_manager_a57c9e5077c684c6829f79d807537a074}\label{class_enemy_manager_a57c9e5077c684c6829f79d807537a074} 
+float {\bfseries enemy\+Width}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_manager_ade8aff75a9d6a27a52f51a3549172479}\label{class_enemy_manager_ade8aff75a9d6a27a52f51a3549172479} 
+const int {\bfseries POOLEDENEMYCOUNT} = 4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages all alive and dead Enemies in a pooling system. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_manager_a9e1dd89b92312d0aaf639955b4846548}\label{class_enemy_manager_a9e1dd89b92312d0aaf639955b4846548} 
+\index{EnemyManager@{EnemyManager}!DeactivateEnemy@{DeactivateEnemy}}
+\index{DeactivateEnemy@{DeactivateEnemy}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{DeactivateEnemy()}{DeactivateEnemy()}}
+{\footnotesize\ttfamily void Enemy\+Manager.\+Deactivate\+Enemy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}}}]{enemy }\end{DoxyParamCaption})}
+
+
+
+checks if the enemy is a basic enemy or a tank enemy and removes them from the respective alive linked list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enemy} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_manager_a000a11509c5bdbf084be5c18f46fa4a3}\label{class_enemy_manager_a000a11509c5bdbf084be5c18f46fa4a3} 
+\index{EnemyManager@{EnemyManager}!GetGameHeight@{GetGameHeight}}
+\index{GetGameHeight@{GetGameHeight}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{GetGameHeight()}{GetGameHeight()}}
+{\footnotesize\ttfamily float Enemy\+Manager.\+Get\+Game\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the current height of the game screen 
+
+\begin{DoxyReturn}{Returns}
+float of the current height of the gaem screen
+\end{DoxyReturn}
+\Hypertarget{class_enemy_manager_a093241bcac2f687c0e66c67213adb828}\label{class_enemy_manager_a093241bcac2f687c0e66c67213adb828} 
+\index{EnemyManager@{EnemyManager}!GetRandomSpawnDistance@{GetRandomSpawnDistance}}
+\index{GetRandomSpawnDistance@{GetRandomSpawnDistance}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{GetRandomSpawnDistance()}{GetRandomSpawnDistance()}}
+{\footnotesize\ttfamily float Enemy\+Manager.\+Get\+Random\+Spawn\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+gets a random value the platforms must move before an enemy is spawned 
+
+\begin{DoxyReturn}{Returns}
+a random distance the platforms will move
+\end{DoxyReturn}
+\Hypertarget{class_enemy_manager_a32ae4376a42bc6eba6719ff2ceef1595}\label{class_enemy_manager_a32ae4376a42bc6eba6719ff2ceef1595} 
+\index{EnemyManager@{EnemyManager}!GetRandomXInScreen@{GetRandomXInScreen}}
+\index{GetRandomXInScreen@{GetRandomXInScreen}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{GetRandomXInScreen()}{GetRandomXInScreen()}}
+{\footnotesize\ttfamily float Enemy\+Manager.\+Get\+Random\+XIn\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a random x value within the screen space 
+
+\begin{DoxyReturn}{Returns}
+a random float within the screen space on the x axis
+\end{DoxyReturn}
+\Hypertarget{class_enemy_manager_a6df71b3705181066ab6ee7aace857d11}\label{class_enemy_manager_a6df71b3705181066ab6ee7aace857d11} 
+\index{EnemyManager@{EnemyManager}!SideSpawner@{SideSpawner}}
+\index{SideSpawner@{SideSpawner}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{SideSpawner()}{SideSpawner()}}
+{\footnotesize\ttfamily void Enemy\+Manager.\+Side\+Spawner (\begin{DoxyParamCaption}\item[{bool}]{left }\end{DoxyParamCaption})}
+
+
+
+use a boolean to determine if the tank enemy spawns on the left side(true) or the right side (false) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & bollean to determine if the oenemy will spawn on the left or right of the screen\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_manager_af4a2d5e7943e1113619f8962c6a91517}\label{class_enemy_manager_af4a2d5e7943e1113619f8962c6a91517} 
+\index{EnemyManager@{EnemyManager}!SpawnBasic@{SpawnBasic}}
+\index{SpawnBasic@{SpawnBasic}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{SpawnBasic()}{SpawnBasic()}}
+{\footnotesize\ttfamily void Enemy\+Manager.\+Spawn\+Basic (\begin{DoxyParamCaption}\item[{Vector3}]{pos }\end{DoxyParamCaption})}
+
+
+
+spawns a basic enemy at the input position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & vector 3 position to spawn an enemy at\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_manager_a7831df63734fe9d39dc7db4d8355825d}\label{class_enemy_manager_a7831df63734fe9d39dc7db4d8355825d} 
+\index{EnemyManager@{EnemyManager}!SpawnTank@{SpawnTank}}
+\index{SpawnTank@{SpawnTank}!EnemyManager@{EnemyManager}}
+\doxysubsubsection{\texorpdfstring{SpawnTank()}{SpawnTank()}}
+{\footnotesize\ttfamily void Enemy\+Manager.\+Spawn\+Tank (\begin{DoxyParamCaption}\item[{Vector3}]{pos }\end{DoxyParamCaption})}
+
+
+
+spawns a tank enemy at the input position 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & vector 3 position to spawn an enemy at\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Enemy\+Scripts/Enemy\+Manager.\+cs\end{DoxyCompactItemize}

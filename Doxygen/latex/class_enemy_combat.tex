@@ -1,0 +1,133 @@
+\doxysection{Enemy\+Combat Class Reference}
+\hypertarget{class_enemy_combat}{}\label{class_enemy_combat}\index{EnemyCombat@{EnemyCombat}}
+
+
+Enemy Combat controls the enemies combat abilities and information.  
+
+
+Inheritance diagram for Enemy\+Combat\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_combat}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_combat_a088151298fa71cc437cdcca5f836bc62}\label{class_enemy_combat_a088151298fa71cc437cdcca5f836bc62} 
+void {\bfseries Take\+Damage} ()
+\begin{DoxyCompactList}\small\item\em minus 1 health from this enemy \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_combat_a73a2115051ae166123f1875fddd9d651}{Take\+Damage}} (int damage)
+\begin{DoxyCompactList}\small\item\em minus an input amount of health from the enemy \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_combat_a5c32f72bb14e40611d3acbcc91c78aa9}\label{class_enemy_combat_a5c32f72bb14e40611d3acbcc91c78aa9} 
+void {\bfseries Die} ()
+\begin{DoxyCompactList}\small\item\em kills this enemy \end{DoxyCompactList}\item 
+\Hypertarget{class_enemy_combat_a840705d94132221540707005b809068d}\label{class_enemy_combat_a840705d94132221540707005b809068d} 
+void {\bfseries Reset\+Combat} ()
+\begin{DoxyCompactList}\small\item\em Resets this enemy for respawning. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_combat_a0f0eef82d3f3c3f79aff26a751616755}{Set\+Target}} (Game\+Object target\+Object)
+\begin{DoxyCompactList}\small\item\em sets the target this enemy will shoot at \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_combat_a94761161443526f7a33728df38f3f482}\label{class_enemy_combat_a94761161443526f7a33728df38f3f482} 
+void {\bfseries Shoot\+At\+Target} ()
+\begin{DoxyCompactList}\small\item\em Shoot a bullet at the target game object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_combat_a6b913f24d26e8ddec836c87c5cf2486b}\label{class_enemy_combat_a6b913f24d26e8ddec836c87c5cf2486b} 
+void {\bfseries Start} ()
+\item 
+\Hypertarget{class_enemy_combat_aedeb94bb0a2aa8e8bfa27ea8128d192a}\label{class_enemy_combat_aedeb94bb0a2aa8e8bfa27ea8128d192a} 
+void {\bfseries Update} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_enemy_combat_a97e8bdb44916c6250b5a2b9d1e14b601}{Time\+Between\+Shots}} ()
+\begin{DoxyCompactList}\small\item\em coroutine which times between each shot \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_enemy_combat_ac1383ba00c1c1dc37a73973207b95515}\label{class_enemy_combat_ac1383ba00c1c1dc37a73973207b95515} 
+int {\bfseries health} = 1
+\item 
+\Hypertarget{class_enemy_combat_aef3273bed225f0cdeb812f43bb8b29eb}\label{class_enemy_combat_aef3273bed225f0cdeb812f43bb8b29eb} 
+int {\bfseries default\+Health} = 1
+\item 
+\Hypertarget{class_enemy_combat_a2ea9277c3866aa56a5586724d66ef6be}\label{class_enemy_combat_a2ea9277c3866aa56a5586724d66ef6be} 
+float {\bfseries bullet\+Speed}
+\item 
+\Hypertarget{class_enemy_combat_a3a7497447964a0fca51c8705b879490e}\label{class_enemy_combat_a3a7497447964a0fca51c8705b879490e} 
+Audio\+Source {\bfseries sound\+Maker}
+\item 
+\Hypertarget{class_enemy_combat_a15374b1c3218c2e882b42ff5a865a704}\label{class_enemy_combat_a15374b1c3218c2e882b42ff5a865a704} 
+Game\+Object {\bfseries target}
+\item 
+\Hypertarget{class_enemy_combat_ab0e71244e856f0cebf4c645f643c9da0}\label{class_enemy_combat_ab0e71244e856f0cebf4c645f643c9da0} 
+Game\+Object {\bfseries parent}
+\item 
+\Hypertarget{class_enemy_combat_a8a223d2b58ea464a8a03b973e80d8a49}\label{class_enemy_combat_a8a223d2b58ea464a8a03b973e80d8a49} 
+\mbox{\hyperlink{class_enemy_base_script}{Enemy\+Base\+Script}} {\bfseries parent\+Script}
+\item 
+\Hypertarget{class_enemy_combat_aa8ddf84745e5e7c52d13074645cb6a1c}\label{class_enemy_combat_aa8ddf84745e5e7c52d13074645cb6a1c} 
+int {\bfseries min\+Time\+Between\+Shots}
+\item 
+\Hypertarget{class_enemy_combat_ae14a6edb52a18c89a8967e62bb145c9b}\label{class_enemy_combat_ae14a6edb52a18c89a8967e62bb145c9b} 
+int {\bfseries max\+Time\+Between\+Shots}
+\item 
+\Hypertarget{class_enemy_combat_a84d7c47af3a611de0d37592d51246e22}\label{class_enemy_combat_a84d7c47af3a611de0d37592d51246e22} 
+Coroutine {\bfseries waiting\+Coroutine} = null
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Enemy Combat controls the enemies combat abilities and information. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_enemy_combat_a0f0eef82d3f3c3f79aff26a751616755}\label{class_enemy_combat_a0f0eef82d3f3c3f79aff26a751616755} 
+\index{EnemyCombat@{EnemyCombat}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!EnemyCombat@{EnemyCombat}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Enemy\+Combat.\+Set\+Target (\begin{DoxyParamCaption}\item[{Game\+Object}]{target\+Object }\end{DoxyParamCaption})}
+
+
+
+sets the target this enemy will shoot at 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+Object} & gameobject of the target to shoot at\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_combat_a73a2115051ae166123f1875fddd9d651}\label{class_enemy_combat_a73a2115051ae166123f1875fddd9d651} 
+\index{EnemyCombat@{EnemyCombat}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!EnemyCombat@{EnemyCombat}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Enemy\+Combat.\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
+
+
+
+minus an input amount of health from the enemy 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & amount of health to minus\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_enemy_combat_a97e8bdb44916c6250b5a2b9d1e14b601}\label{class_enemy_combat_a97e8bdb44916c6250b5a2b9d1e14b601} 
+\index{EnemyCombat@{EnemyCombat}!TimeBetweenShots@{TimeBetweenShots}}
+\index{TimeBetweenShots@{TimeBetweenShots}!EnemyCombat@{EnemyCombat}}
+\doxysubsubsection{\texorpdfstring{TimeBetweenShots()}{TimeBetweenShots()}}
+{\footnotesize\ttfamily IEnumerator Enemy\+Combat.\+Time\+Between\+Shots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+coroutine which times between each shot 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+\_\+\+Repos/\+AIE/\+Cross Platform/\+Assessment/\+Untitled\+Jump\+Game/\+Assets/\+Scripts/\+Enemy\+Scripts/Enemy\+Combat.\+cs\end{DoxyCompactItemize}
